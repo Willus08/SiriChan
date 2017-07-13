@@ -9,13 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainMenu">
+        <activity android:name=".view.activities.main_menu.MainMenu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".view.activities.weather.Weather" />
+        <activity android:name=".view.activities.setup_event.SetupEvent" />
+        <activity android:name=".view.activities.selected_date.SelectedDate" />
+        <activity android:name=".view.activities.list_of_events.ListOfEvents" />
+        <activity android:name=".view.activities.gps.GPS" />
+        <activity android:name=".view.activities.calander.Calander"></activity>
     </application>
 
 </manifest>
