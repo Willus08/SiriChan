@@ -14,11 +14,11 @@ import retrofit2.http.Query;
 
 public class WeatherRetroHelper {
 
-    private static final String BASE_URL = "api.openweathermap.org/";
+    private static final String BASE_URL = "http://api.openweathermap.org/";
     private static final String API_KEY = "187603ced7a117336e64fa84670736f5";
 
     //api.openweathermap.org/data/2.5/weather?lat=33.01&lon=87.01&appid=187603ced7a117336e64fa84670736f5
-    public Retrofit Create()
+    public static Retrofit Create()
     {
         Retrofit retro= new Retrofit.Builder().baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -28,7 +28,7 @@ public class WeatherRetroHelper {
     }
 
 
-    public Call<WeatherDataPojo> getWeather(double lat, double lon)
+    public static Call<WeatherDataPojo> getWeather(double lat, double lon)
     {
         Retrofit retro=Create();
         weather weather= retro.create(WeatherRetroHelper.weather.class);

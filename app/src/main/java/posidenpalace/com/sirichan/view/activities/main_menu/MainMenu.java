@@ -1,6 +1,7 @@
 package posidenpalace.com.sirichan.view.activities.main_menu;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import javax.inject.Inject;
 
 import posidenpalace.com.sirichan.R;
+import posidenpalace.com.sirichan.view.activities.weather.Weather;
 import posidenpalace.com.sirichan.view.injection.main_menu.DaggerMainMenuComponent;
 
 public class MainMenu extends AppCompatActivity implements MainMenuContract.View {
@@ -56,6 +58,12 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
                 // result of the request.
                 return;
             }
+        }
+        else
+        {
+            //use this to to start if everything is accepted
+//            Intent intent=new Intent(this, Weather.class);
+//            startActivity(intent);
         }
     }
 

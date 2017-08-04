@@ -16,6 +16,7 @@ public class Weather extends AppCompatActivity implements WeatherContract.View{
         setContentView(R.layout.activity_weather);
         setupDagger();
         presenter.addView(this);
+        presenter.getLocationsWeather(33,-87);
     }
 
     public void setupDagger(){
