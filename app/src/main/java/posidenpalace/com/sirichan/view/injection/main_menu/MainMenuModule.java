@@ -1,8 +1,13 @@
 package posidenpalace.com.sirichan.view.injection.main_menu;
 
-/**
- * Created by Android on 7/13/2017.
- */
+import dagger.Module;
+import dagger.Provides;
+import posidenpalace.com.sirichan.view.activities.main_menu.MainMenuPresenter;
 
+@Module
 public class MainMenuModule {
+    @Provides
+    public MainMenuPresenter provideMainMenuPresenter(){
+        return new MainMenuPresenter();
+    }
 }

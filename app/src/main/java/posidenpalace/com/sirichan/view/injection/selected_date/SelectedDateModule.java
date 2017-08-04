@@ -1,8 +1,13 @@
 package posidenpalace.com.sirichan.view.injection.selected_date;
 
-/**
- * Created by Android on 7/13/2017.
- */
+import dagger.Module;
+import dagger.Provides;
+import posidenpalace.com.sirichan.view.activities.selected_date.SelectedDatePresenter;
 
+@Module
 public class SelectedDateModule {
+    @Provides
+    public SelectedDatePresenter provideSelectedDatePresenter(){
+        return new SelectedDatePresenter();
+    }
 }

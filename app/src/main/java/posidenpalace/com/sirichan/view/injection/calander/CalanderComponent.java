@@ -1,8 +1,10 @@
 package posidenpalace.com.sirichan.view.injection.calander;
 
-/**
- * Created by Android on 7/13/2017.
- */
 
+import dagger.Component;
+import posidenpalace.com.sirichan.view.activities.calander.Calander;
+
+@Component(modules = CalanderModule.class)
 public interface CalanderComponent {
+    void inject(Calander calander);
 }

@@ -1,8 +1,17 @@
 package posidenpalace.com.sirichan.view.activities.calander;
 
-/**
- * Created by Android on 7/13/2017.
- */
 
-public class CalanderPresenter {
+import posidenpalace.com.sirichan.view.activities.BaseView;
+
+public class CalanderPresenter implements CalanderContract.Presenter{
+    BaseView view;
+    @Override
+    public void addView(CalanderContract.View view) {
+        this.view = view;
+    }
+
+    @Override
+    public void removeView() {
+        this.view = null;
+    }
 }

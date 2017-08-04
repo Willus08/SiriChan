@@ -1,8 +1,10 @@
 package posidenpalace.com.sirichan.view.injection.weather;
 
-/**
- * Created by Android on 7/13/2017.
- */
 
+import dagger.Component;
+import posidenpalace.com.sirichan.view.activities.weather.Weather;
+
+@Component(modules = WeatherModule.class)
 public interface WeatherComponent {
+    void inject(Weather weather);
 }

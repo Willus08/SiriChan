@@ -1,8 +1,18 @@
 package posidenpalace.com.sirichan.view.activities.main_menu;
 
-/**
- * Created by Android on 7/13/2017.
- */
 
-public class MainMenuPresenter {
+import posidenpalace.com.sirichan.view.activities.BaseView;
+
+public class MainMenuPresenter implements MainMenuContract.Presenter{
+
+    BaseView view;
+    @Override
+    public void addView(MainMenuContract.View view) {
+        this.view = view;
+    }
+
+    @Override
+    public void removeView() {
+        this.view = null;
+    }
 }
