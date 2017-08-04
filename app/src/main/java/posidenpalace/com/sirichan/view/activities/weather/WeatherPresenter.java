@@ -31,6 +31,7 @@ public class WeatherPresenter implements WeatherContract.Presenter{
             public void onResponse(Call<WeatherDataPojo> call, Response<WeatherDataPojo> response) {
                 Log.d(TAG, "onResponse: "+response.body().getWeather().get(0).getDescription().toString());
                 Log.d(TAG, "onResponse: "+response.body().getRain());
+                //returns kelvin
                 Log.d(TAG, "onResponse: "+response.body().getMain().getTemp());
             }
 
