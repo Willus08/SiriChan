@@ -1,4 +1,4 @@
-package posidenpalace.com.sirichan.view.activities.restcalls.retrofithelpers;
+package posidenpalace.com.sirichan.view.activities.restcalls.retrofithelpers.weatherhelper;
 
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
