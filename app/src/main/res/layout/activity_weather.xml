@@ -6,4 +6,6 @@
     android:layout_height="match_parent"
     tools:context="posidenpalace.com.sirichan.view.activities.weather.Weather">
 
+    
+
 </android.support.constraint.ConstraintLayout>
