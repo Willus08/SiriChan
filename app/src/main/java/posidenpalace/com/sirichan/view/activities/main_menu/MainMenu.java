@@ -26,6 +26,7 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
     private ListView listView;
     private DrawerLayout drawerLayout;
     @Inject MainMenuPresenter presenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +39,8 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
         checkPermissons();
     }
 
-    private void checkPermissons() { // checks for the permissions needed for the app
+    // checks for the permissions needed for the app
+    private void checkPermissons() {
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -78,7 +80,6 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
         }
     }
 
-
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -103,6 +104,7 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
         }
     }
 
+    // sets up the injection for this class
     public void setupDagger(){
         DaggerMainMenuComponent.create().inject(this);
     }

@@ -31,7 +31,7 @@
         android:entries="@array/menuList"
         android:layout_height="match_parent"
         android:divider="@null"
-        android:background="@color/colorPrimary"
+        android:background="@color/drawerBackground"
         />
 
 </android.support.v4.widget.DrawerLayout>
