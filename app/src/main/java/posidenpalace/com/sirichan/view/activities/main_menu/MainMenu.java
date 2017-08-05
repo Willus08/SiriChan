@@ -1,20 +1,18 @@
 package posidenpalace.com.sirichan.view.activities.main_menu;
 
 import android.Manifest;
-import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
 import javax.inject.Inject;
 
 import posidenpalace.com.sirichan.R;
-import posidenpalace.com.sirichan.view.activities.weather.Weather;
 import posidenpalace.com.sirichan.view.injection.main_menu.DaggerMainMenuComponent;
 
 public class MainMenu extends AppCompatActivity implements MainMenuContract.View {
@@ -27,7 +25,10 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
         setContentView(R.layout.activity_main_menu);
         setupDagger();
         presenter.addView(this);
+        checkPermissons();
+    }
 
+    private void checkPermissons() {
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -66,6 +67,7 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
 //            startActivity(intent);
         }
     }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
