@@ -6,8 +6,12 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import javax.inject.Inject;
@@ -15,20 +19,26 @@ import javax.inject.Inject;
 import posidenpalace.com.sirichan.R;
 import posidenpalace.com.sirichan.view.injection.main_menu.DaggerMainMenuComponent;
 
-public class MainMenu extends AppCompatActivity implements MainMenuContract.View {
+public class MainMenu extends AppCompatActivity implements MainMenuContract.View,AdapterView.OnItemClickListener {
     private static final int MY_PERMISSIONS_REQUEST_REQUEST_LOCATION = 0;
     private static final String TAG = "MainMenu";
+    private CharSequence msg ="";
+    private ListView listView;
+    private DrawerLayout drawerLayout;
     @Inject MainMenuPresenter presenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+        drawerLayout = (DrawerLayout) findViewById(R.id.dlMMDrawerLayout);
+        listView =(ListView) findViewById(R.id.lvMenus);
+        listView.setOnItemClickListener(this);
         setupDagger();
         presenter.addView(this);
         checkPermissons();
     }
 
-    private void checkPermissons() {
+    private void checkPermissons() { // checks for the permissions needed for the app
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -63,8 +73,8 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
         else
         {
             //use this to to start if everything is accepted
-//            Intent intent=new Intent(this, Weather.class);
-//            startActivity(intent);
+            //Intent intent=new Intent(this, Weather.class);
+            //startActivity(intent);
         }
     }
 
@@ -78,8 +88,7 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     Toast.makeText(this, "Thank You For Permission", Toast.LENGTH_SHORT).show();
-                    // permission was granted, yay! Do the
-                    // contacts-related task you need to do.
+                    // permission was granted, yay!
 
                 } else {
 
@@ -102,4 +111,16 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
     public void showError(String error) {
 
     }
+
+    @Override // sets up the on click for the drawer items
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            switch (position) {
+            }
+
+        Toast output = Toast.makeText(this,"temp message",Toast.LENGTH_SHORT);
+        output.show();
+
+    }
+
 }
