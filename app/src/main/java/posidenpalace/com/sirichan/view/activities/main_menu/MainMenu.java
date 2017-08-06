@@ -62,8 +62,8 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
         else
         {
             //use this to to start if everything is accepted
-            Intent intent=new Intent(this, Weather.class);
-            startActivity(intent);
+//            Intent intent=new Intent(this, Weather.class);
+//            startActivity(intent);
         }
     }
 
