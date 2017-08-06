@@ -6,7 +6,9 @@ import android.os.Bundle;
 import javax.inject.Inject;
 
 import posidenpalace.com.sirichan.R;
+import posidenpalace.com.sirichan.view.activities.restcalls.model.weathermodel.WeatherDataPojo;
 import posidenpalace.com.sirichan.view.injection.weather.DaggerWeatherComponent;
+import retrofit2.Response;
 
 public class Weather extends AppCompatActivity implements WeatherContract.View{
     @Inject WeatherPresenter presenter;
@@ -25,6 +27,11 @@ public class Weather extends AppCompatActivity implements WeatherContract.View{
 
     @Override
     public void showError(String error) {
+
+    }
+
+    @Override
+    public void weatherResponse(Response<WeatherDataPojo> response) {
 
     }
 }

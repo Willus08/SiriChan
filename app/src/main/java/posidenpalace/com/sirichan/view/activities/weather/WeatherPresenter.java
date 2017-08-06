@@ -12,7 +12,7 @@ import retrofit2.Response;
 
 public class WeatherPresenter implements WeatherContract.Presenter{
     private static final String TAG = "WeatherPresenter";
-    BaseView view;
+    WeatherContract.View view;
     @Override
     public void addView(WeatherContract.View view) {
         this.view = view;
@@ -33,6 +33,8 @@ public class WeatherPresenter implements WeatherContract.Presenter{
                 Log.d(TAG, "onResponse: "+response.body().getRain());
                 //returns kelvin
                 Log.d(TAG, "onResponse: "+response.body().getMain().getTemp());
+                view.weatherResponse(response);
+
             }
 
             @Override
