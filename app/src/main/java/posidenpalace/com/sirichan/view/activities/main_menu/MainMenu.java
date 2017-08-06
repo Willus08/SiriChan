@@ -1,6 +1,7 @@
 package posidenpalace.com.sirichan.view.activities.main_menu;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -17,6 +18,9 @@ import android.widget.Toast;
 import javax.inject.Inject;
 
 import posidenpalace.com.sirichan.R;
+import posidenpalace.com.sirichan.view.activities.calander.Calander;
+import posidenpalace.com.sirichan.view.activities.gps.GPS;
+import posidenpalace.com.sirichan.view.activities.weather.Weather;
 import posidenpalace.com.sirichan.view.injection.main_menu.DaggerMainMenuComponent;
 
 public class MainMenu extends AppCompatActivity implements MainMenuContract.View,AdapterView.OnItemClickListener {
@@ -118,9 +122,25 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
             switch (position) {
+                case 0:
+                    Intent weatherIntent = new Intent(MainMenu.this, Weather.class);
+                    msg = "Weather";
+                    startActivity(weatherIntent);
+                    break;
+                case 1:
+                    Intent gpsIntent = new Intent(MainMenu.this, GPS.class);
+                    msg = "GPS";
+                    startActivity(gpsIntent);
+                    break;
+                case 2:
+                    Intent calanderIntent = new Intent(MainMenu.this, Calander.class);
+                    msg = "Calander";
+                    startActivity(calanderIntent);
+                    break;
+
             }
 
-        Toast output = Toast.makeText(this,"temp message",Toast.LENGTH_SHORT);
+        Toast output = Toast.makeText(this,"Going to " + msg,Toast.LENGTH_SHORT);
         output.show();
 
     }
