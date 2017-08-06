@@ -2,6 +2,7 @@ package posidenpalace.com.sirichan.view.activities.signup_login;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import javax.inject.Inject;
 
@@ -36,5 +37,14 @@ public class Signup_Login extends AppCompatActivity implements Signup_LoginContr
     @Override
     public void changeToLogIn() {
 
+    }
+
+    public void LogIn(View view) {
+    }
+
+    public void StartSignUp(View view) {
+    }
+
+    public void CreateAccount(View view) {
     }
 }
