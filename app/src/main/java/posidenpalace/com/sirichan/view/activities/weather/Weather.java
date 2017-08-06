@@ -48,6 +48,7 @@ public class Weather extends AppCompatActivity implements WeatherContract.View{
 
     }
 
+    //used to display image for weather and what the weather type is
     @Override
     public void weatherResponse(Response<WeatherDataPojo> response) {
 
