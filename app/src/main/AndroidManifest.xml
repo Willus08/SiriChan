@@ -45,6 +45,17 @@
             android:name=".view.activities.gps.GPS"
             android:label="@string/title_activity_gps" />
         <activity android:name=".view.activities.signup_login.Signup_Login"></activity>
+            android:label="@string/title_activity_gps" />
+
+        <receiver android:name=".view.activities.widget.SiriChanWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/siri_chan_widget_info" />
+        </receiver>
     </application>
 
 </manifest>

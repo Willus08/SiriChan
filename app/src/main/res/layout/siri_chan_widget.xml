@@ -1,0 +1,62 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/circle_back"
+    android:padding="@dimen/widget_margin">
+
+
+
+    <ImageView
+        android:id="@+id/ivWidgetWeather"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/tvWidgeTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10sp"
+        android:shadowColor="@color/cardview_dark_background"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1"
+        android:textColor="@color/colorWhite"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="6:00pm"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvWidgetWeatherType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:shadowColor="@color/cardview_dark_background"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:shadowRadius="2"
+        android:textColor="@color/colorWhite"
+        android:layout_above="@+id/tvWidgetCity"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:text="Cloudy"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvWidgetCity"
+        android:layout_width="wrap_content"
+        android:paddingBottom="10sp"
+        android:shadowColor="@color/cardview_dark_background"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1"
+        android:textColor="@color/colorWhite"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ivWidgetWeather"
+        android:layout_centerHorizontal="true"
+        android:text="City: Roswell"
+        android:textStyle="bold" />
+
+</RelativeLayout>
