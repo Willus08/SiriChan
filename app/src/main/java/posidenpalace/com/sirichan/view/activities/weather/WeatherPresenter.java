@@ -32,6 +32,8 @@ public class WeatherPresenter implements WeatherContract.Presenter{
                 Log.d(TAG, "onResponse: "+response.body().getRain());
                 //returns kelvin
                 Log.d(TAG, "onResponse: "+response.body().getMain().getTemp());
+                view.weatherResponse(response);
+
             }
 
             @Override
