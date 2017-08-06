@@ -1,10 +1,8 @@
 package posidenpalace.com.sirichan.view.activities.calander;
 
 
-import posidenpalace.com.sirichan.view.activities.BaseView;
-
 public class CalanderPresenter implements CalanderContract.Presenter{
-    BaseView view;
+    CalanderContract.View view;
     @Override
     public void addView(CalanderContract.View view) {
         this.view = view;
