@@ -8,7 +8,6 @@
     android:orientation="vertical"
     tools:context="posidenpalace.com.sirichan.view.activities.weather.Weather">
 
-
     <ImageView
         android:id="@+id/ivWeatherPicture"
         android:layout_width="100sp"
@@ -25,11 +24,34 @@
         android:textSize="20sp" />
 
     <TextView
+        android:layout_margin="5sp"
+        android:id="@+id/tvWeatherCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_margin="5sp"
         android:id="@+id/tvWeatherTemperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="80° F"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_margin="5sp"
+        android:id="@+id/tvWeatherHumidity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_margin="5sp"
+        android:id="@+id/tvWeatherWind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:textColor="@color/colorWhite"
         android:textSize="20sp" />
 
