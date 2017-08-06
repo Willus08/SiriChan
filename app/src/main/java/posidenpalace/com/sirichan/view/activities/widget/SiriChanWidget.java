@@ -3,7 +3,11 @@ package posidenpalace.com.sirichan.view.activities.widget;
 import android.Manifest;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
+import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.support.v4.app.ActivityCompat;
@@ -14,6 +18,11 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.AppWidgetTarget;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.tasks.OnSuccessListener;
+
+import java.sql.Time;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import posidenpalace.com.sirichan.R;
 import posidenpalace.com.sirichan.view.activities.restcalls.model.weathermodel.WeatherDataPojo;
@@ -26,9 +35,15 @@ import retrofit2.Response;
  * Implementation of App Widget functionality.
  */
 public class SiriChanWidget extends AppWidgetProvider {
+    private static final String TAG = "SiriChanWidget";
     private static FusedLocationProviderClient fusedLocationProviderClient;
     private RemoteViews views;
     private Context myContext;
+    private Date d;
+    private int MyappWidgetId;
+    private SimpleDateFormat sdf=new SimpleDateFormat("hh:mm a");;
+    private BroadcastReceiver receiver;
+    private String currentDateTimeString;
     private AppWidgetTarget appWidgetTarget;
 
     void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
@@ -53,6 +68,10 @@ public class SiriChanWidget extends AppWidgetProvider {
                 getLocationsWeather(location.getLatitude(),location.getLongitude());
             }
         });
+        d=new Date();
+        currentDateTimeString = sdf.format(d);
+//        currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
+        views.setTextViewText(R.id.tvWidgeTime,currentDateTimeString);
         CharSequence widgetText = context.getString(R.string.appwidget_text);
 
         // Construct the RemoteViews object
@@ -65,6 +84,8 @@ public class SiriChanWidget extends AppWidgetProvider {
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         // There may be multiple widgets active, so update all of them
+        MyappWidgetId=appWidgetIds[0];
+        Log.d("Widget", "onUpdate: Updating");
         for (int appWidgetId : appWidgetIds) {
             updateAppWidget(context, appWidgetManager, appWidgetId);
         }
@@ -72,11 +93,38 @@ public class SiriChanWidget extends AppWidgetProvider {
 
     @Override
     public void onEnabled(Context context) {
+        super.onEnabled(context);
+        myContext=context;
+        views = new RemoteViews(myContext.getPackageName(), R.layout.siri_chan_widget);
+        final AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(myContext);
+        final ComponentName thisWidget = new ComponentName(context, SiriChanWidget.class);
+        receiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context ctx, Intent intent)
+            {
+                Log.d("Broadcast", "onReceive: ");
+                if (intent.getAction().compareTo(Intent.ACTION_TIME_TICK) == 0) {
+                    d=new Date();
+                    currentDateTimeString = sdf.format(d);
+//                    currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
+                    views.setTextViewText(R.id.tvWidgeTime,currentDateTimeString);
+                    updateAppWidget(myContext,appWidgetManager,MyappWidgetId);
+                    appWidgetManager.updateAppWidget(thisWidget, views);
+                    // update widget time here using System.currentTimeMillis()
+                }
+            }
+        };
+
+        context.getApplicationContext().registerReceiver(receiver, new IntentFilter(Intent.ACTION_TIME_TICK));
         // Enter relevant functionality for when the first widget is created
     }
 
     @Override
     public void onDisabled(Context context) {
+        super.onDisabled(context);
+        if (receiver != null) {
+            context.getApplicationContext().unregisterReceiver(receiver);
+        }
         // Enter relevant functionality for when the last widget is disabled
     }
 
@@ -86,6 +134,7 @@ public class SiriChanWidget extends AppWidgetProvider {
         call.enqueue(new Callback<WeatherDataPojo>() {
             @Override
             public void onResponse(Call<WeatherDataPojo> call, Response<WeatherDataPojo> response) {
+                Log.d(TAG, "onResponse: RestCall");
                 views.setTextViewText(R.id.tvWidgetCity,"City: "+response.body().getName());
                 Glide.with(myContext.getApplicationContext()).load("http://openweathermap.org/img/w/"+response.body().getWeather().get(0).getIcon()+".png").asBitmap().into(appWidgetTarget);
                 views.setTextViewText(R.id.tvWidgetWeatherType,response.body().getWeather().get(0).getDescription());
