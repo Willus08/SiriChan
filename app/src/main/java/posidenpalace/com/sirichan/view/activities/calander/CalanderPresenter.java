@@ -1,13 +1,18 @@
 package posidenpalace.com.sirichan.view.activities.calander;
 
 
-import posidenpalace.com.sirichan.view.activities.BaseView;
+import android.content.Context;
+
+
 
 public class CalanderPresenter implements CalanderContract.Presenter{
-    BaseView view;
+    CalanderContract.View view;
+    Context context;
     @Override
     public void addView(CalanderContract.View view) {
+
         this.view = view;
+        this.context = (Context)view;
     }
 
     @Override
