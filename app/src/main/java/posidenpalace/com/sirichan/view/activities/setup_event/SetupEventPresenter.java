@@ -1,10 +1,8 @@
 package posidenpalace.com.sirichan.view.activities.setup_event;
 
 
-import posidenpalace.com.sirichan.view.activities.BaseView;
-
 public class SetupEventPresenter implements SetupEventContract.Presenter{
-    BaseView view;
+    SetupEventContract.View view;
 
     @Override
     public void addView(SetupEventContract.View view) {

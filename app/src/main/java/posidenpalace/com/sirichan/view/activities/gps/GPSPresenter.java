@@ -1,10 +1,8 @@
 package posidenpalace.com.sirichan.view.activities.gps;
 
 
-import posidenpalace.com.sirichan.view.activities.BaseView;
-
 public class GPSPresenter implements GPSContract.Presenter{
-    BaseView view;
+    GPSContract.View view;
     @Override
     public void addView(GPSContract.View view) {
         this.view = view;

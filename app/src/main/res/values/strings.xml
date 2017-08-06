@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">SiriChan</string>
     <string name="title_activity_gps">Map</string>
+    <string-array name="menuList">
+        <item>Weather</item>
+        <item>GPS</item>
+        <item>Calender</item>
+    </string-array>
 </resources>

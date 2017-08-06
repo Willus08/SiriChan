@@ -3,7 +3,6 @@ package posidenpalace.com.sirichan.view.activities.weather;
 
 import android.util.Log;
 
-import posidenpalace.com.sirichan.view.activities.BaseView;
 import posidenpalace.com.sirichan.view.activities.restcalls.model.weathermodel.WeatherDataPojo;
 import posidenpalace.com.sirichan.view.activities.restcalls.retrofithelpers.weatherhelper.WeatherRetroHelper;
 import retrofit2.Call;
