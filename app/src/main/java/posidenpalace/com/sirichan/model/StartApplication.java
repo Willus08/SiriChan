@@ -1,4 +1,4 @@
-package posidenpalace.com.sirichan.view.activities.signup_login;
+package posidenpalace.com.sirichan.model;
 
 
 import android.app.Application;
