@@ -40,7 +40,7 @@
         android:textColor="@color/colorWhite"
         android:layout_above="@+id/tvWidgetCity"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="13dp"
         android:text="Cloudy"
         android:textSize="15sp"
         android:textStyle="bold" />
