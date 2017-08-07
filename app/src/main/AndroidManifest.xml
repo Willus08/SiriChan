@@ -17,7 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.activities.main_menu.MainMenu">
+        <activity android:name=".view.activities.signup_login.Signup_Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -44,7 +44,7 @@
         <activity
             android:name=".view.activities.gps.GPS"
             android:label="@string/title_activity_gps" />
-        <activity android:name=".view.activities.signup_login.Signup_Login"></activity>
+        <activity android:name=".view.activities.main_menu.MainMenu"></activity>
             android:label="@string/title_activity_gps" />
 
         <receiver android:name=".view.activities.widget.SiriChanWidget">

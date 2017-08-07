@@ -12,7 +12,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/llSLSignInLayout"
+        android:id="@+id/llSLSignUpLayout"
         android:orientation="vertical"
         android:visibility="gone">
 
@@ -21,14 +21,14 @@
             android:layout_height="wrap_content"
             android:hint="email"
             android:inputType="textEmailAddress"
-            android:id="@+id/etSLSigninEmail"/>
+            android:id="@+id/etSLSignUpEmail"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="password"
             android:inputType="textWebPassword"
-            android:id="@+id/etSLSigninPassword"/>
+            android:id="@+id/etSLSignUpPassword"/>
 
         <Button
             android:layout_width="wrap_content"
