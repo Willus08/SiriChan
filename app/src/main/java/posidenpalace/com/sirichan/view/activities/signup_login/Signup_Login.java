@@ -171,24 +171,29 @@ public class Signup_Login extends AppCompatActivity implements Signup_LoginContr
         if (!email.equals("")) { // used to makee sure an email is entered
 
             if (!password.equals("")){ // used to make sure a password is entered
+                if (password.length() > 6) { // lets the user know they need a longer password
+                    mAuth.createUserWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
+                                    if (task.isSuccessful()) {
+                                        changeToLogIn();
+                                    }
+                                    // If sign in fails, display a message to the user. If sign in succeeds
+                                    // the auth state listener will be notified and logic to handle the
+                                    // signed in user can be handled in the listener.
+                                    if (!task.isSuccessful()) {
+                                        Toast.makeText(Signup_Login.this, "failed",
+                                                Toast.LENGTH_SHORT).show();
+                                    }
 
-                mAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
-                                changeToLogIn();
-                                // If sign in fails, display a message to the user. If sign in succeeds
-                                // the auth state listener will be notified and logic to handle the
-                                // signed in user can be handled in the listener.
-                                if (!task.isSuccessful()) {
-                                    Toast.makeText(Signup_Login.this, "failed",
-                                            Toast.LENGTH_SHORT).show();
+                                    // ...
                                 }
-
-                                // ...
-                            }
-                        });
+                            });
+                    }else {
+                    Toast.makeText(this, "Your password is to short", Toast.LENGTH_SHORT).show();
+                }
             }else{
                 Toast.makeText(this, "You must enter a password", Toast.LENGTH_SHORT).show();
             }
