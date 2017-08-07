@@ -86,4 +86,11 @@
             android:gravity="center"
             android:text="To get the full experince of this app it is recomended to login with Facebook" />
     </LinearLayout>
+    <!-- TODO delete this button before release-->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="shortcut"
+        android:layout_gravity="bottom"
+        android:text="for testing"/>
 </FrameLayout>

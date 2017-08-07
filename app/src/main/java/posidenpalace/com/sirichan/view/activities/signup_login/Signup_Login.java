@@ -202,6 +202,10 @@ public class Signup_Login extends AppCompatActivity implements Signup_LoginContr
         }
     }
 
-
+    //TODO delete this before release
+    public void shortcut(View view) {
+        Intent shortcut = new Intent(Signup_Login.this, MainMenu.class);
+        startActivity(shortcut);
+    }
 }
 
