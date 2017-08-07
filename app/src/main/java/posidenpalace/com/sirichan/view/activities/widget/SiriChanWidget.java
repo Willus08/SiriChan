@@ -55,6 +55,8 @@ public class SiriChanWidget extends AppWidgetProvider {
         MyappWidgetManager = appWidgetManager;
         views = new RemoteViews(context.getPackageName(), R.layout.siri_chan_widget);
         appWidgetTarget=new AppWidgetTarget(context,views,R.id.ivWidgetWeather,appWidgetId);
+        MyappWidgetManager = appWidgetManager;
+        thisWidget = new ComponentName(context, SiriChanWidget.class);
         fusedLocationProviderClient = new FusedLocationProviderClient(context);
         if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
