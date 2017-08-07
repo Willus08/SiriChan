@@ -45,12 +45,16 @@ public class SiriChanWidget extends AppWidgetProvider {
     private BroadcastReceiver receiver;
     private String currentDateTimeString;
     private AppWidgetTarget appWidgetTarget;
+    private AppWidgetManager MyappWidgetManager;
+    private ComponentName thisWidget;
 
     void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                          int appWidgetId) {
         myContext=context;
         views = new RemoteViews(context.getPackageName(), R.layout.siri_chan_widget);
         appWidgetTarget=new AppWidgetTarget(context,views,R.id.ivWidgetWeather,appWidgetId);
+        MyappWidgetManager = appWidgetManager;
+        thisWidget = new ComponentName(context, SiriChanWidget.class);
         fusedLocationProviderClient = new FusedLocationProviderClient(context);
         if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
@@ -96,8 +100,8 @@ public class SiriChanWidget extends AppWidgetProvider {
         super.onEnabled(context);
         myContext=context;
         views = new RemoteViews(myContext.getPackageName(), R.layout.siri_chan_widget);
-        final AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(myContext);
-        final ComponentName thisWidget = new ComponentName(context, SiriChanWidget.class);
+        MyappWidgetManager = AppWidgetManager.getInstance(myContext);
+        thisWidget = new ComponentName(context, SiriChanWidget.class);
         receiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context ctx, Intent intent)
@@ -108,8 +112,8 @@ public class SiriChanWidget extends AppWidgetProvider {
                     currentDateTimeString = sdf.format(d);
 //                    currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
                     views.setTextViewText(R.id.tvWidgeTime,currentDateTimeString);
-                    updateAppWidget(myContext,appWidgetManager,MyappWidgetId);
-                    appWidgetManager.updateAppWidget(thisWidget, views);
+                    updateAppWidget(myContext,MyappWidgetManager,MyappWidgetId);
+                    MyappWidgetManager.updateAppWidget(thisWidget, views);
                     // update widget time here using System.currentTimeMillis()
                 }
             }
@@ -138,6 +142,7 @@ public class SiriChanWidget extends AppWidgetProvider {
                 views.setTextViewText(R.id.tvWidgetCity,"City: "+response.body().getName());
                 Glide.with(myContext.getApplicationContext()).load("http://openweathermap.org/img/w/"+response.body().getWeather().get(0).getIcon()+".png").asBitmap().into(appWidgetTarget);
                 views.setTextViewText(R.id.tvWidgetWeatherType,response.body().getWeather().get(0).getDescription());
+                MyappWidgetManager.updateAppWidget(thisWidget, views);
             }
 
             @Override
