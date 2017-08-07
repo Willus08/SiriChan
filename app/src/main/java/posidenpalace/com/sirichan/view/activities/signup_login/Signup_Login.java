@@ -113,29 +113,43 @@ public class Signup_Login extends AppCompatActivity implements Signup_LoginContr
     }
 
     public void LogIn(View view) {
-        if (loginEmail.getText() != null) { // used to stop a potential null tostring exception
-            String email = loginEmail.getText().toString();
-            if (loginPassword.getText() != null) { // used to stop a potintial null tostring exception
-                String password = loginPassword.getText().toString();
+        String email = "";
+        String password = "";
+        if (loginEmail.getText() != null) {// used to stop a potintial null tostring exception
+            email = loginEmail.getText().toString();
+        }
+        if (loginPassword.getText() != null){// used to stop a potintial null tostring exception
+            password = loginPassword.getText().toString();
+        }
+        if (!email.equals("") ) { // used to makee sure an email is entered
+
+            if (!password.equals("")){ // used to make sure a password is entered
+
                 mAuth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
-                                Intent intent = new Intent(Signup_Login.this, MainMenu.class);
-                                startActivity(intent);
+                                if (task.isSuccessful()){
+                                    Intent intent = new Intent(Signup_Login.this, MainMenu.class);
+                                    startActivity(intent);
+                              }
                                 // If sign in fails, display a message to the user. If sign in succeeds
                                 // the auth state listener will be notified and logic to handle the
                                 // signed in user can be handled in the listener.
                                 if (!task.isSuccessful()) {
                                     Log.w(TAG, "signInWithEmail:failed", task.getException());
-                                    Toast.makeText(Signup_Login.this, "Failled to login", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Signup_Login.this, "failed", Toast.LENGTH_SHORT).show();
                                 }
 
                                 // ...
                             }
                         });
-            }
+                 }else{
+                Toast.makeText(this, "You must enter a password", Toast.LENGTH_SHORT).show();
+                }
+            }else{
+            Toast.makeText(this, "You Must enter an email address", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -144,10 +158,20 @@ public class Signup_Login extends AppCompatActivity implements Signup_LoginContr
     }
 
     public void CreateAccount(View view) {
-        if (signupEmail.getText() != null) { // used to stop a potential null tostring exception
-            String email = signupEmail.getText().toString();
-            if (signupPassword.getText() != null){ // used to stop a potintial null tostring exception
-                String password = signupPassword.getText().toString();
+        String email = "";
+        String password = "";
+        if (signupEmail.getText() != null) {// used to stop a potintial null tostring exception
+            email = signupEmail.getText().toString();
+        }
+        if (signupPassword.getText() != null){// used to stop a potintial null tostring exception
+            password = signupPassword.getText().toString();
+        }
+
+
+        if (!email.equals("")) { // used to makee sure an email is entered
+
+            if (!password.equals("")){ // used to make sure a password is entered
+
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                             @Override
@@ -158,7 +182,7 @@ public class Signup_Login extends AppCompatActivity implements Signup_LoginContr
                                 // the auth state listener will be notified and logic to handle the
                                 // signed in user can be handled in the listener.
                                 if (!task.isSuccessful()) {
-                                    Toast.makeText(Signup_Login.this, "failed to make account",
+                                    Toast.makeText(Signup_Login.this, "failed",
                                             Toast.LENGTH_SHORT).show();
                                 }
 
