@@ -14,6 +14,7 @@ import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -43,6 +44,7 @@ public class Signup_Login extends AppCompatActivity implements Signup_LoginContr
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_signup__login);
         mAuth = FirebaseAuth.getInstance();
         ButterKnife.bind(this);
@@ -170,10 +172,6 @@ public class Signup_Login extends AppCompatActivity implements Signup_LoginContr
 
     private void updateUI(FirebaseUser currentUser) {
 
-        if (currentUser != null){
-            Intent intent = new Intent(Signup_Login.this,MainMenu.class);
-            startActivity(intent);
-        }
     }
 
     @Override
