@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -15,6 +16,9 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Locale;
+
 import javax.inject.Inject;
 
 import posidenpalace.com.sirichan.R;
@@ -25,6 +29,7 @@ import posidenpalace.com.sirichan.view.injection.main_menu.DaggerMainMenuCompone
 
 public class MainMenu extends AppCompatActivity implements MainMenuContract.View,AdapterView.OnItemClickListener {
     private static final int MY_PERMISSIONS_REQUEST_REQUEST_LOCATION = 0;
+    private static final int REQUEST_CODE=143;
     private static final String TAG = "MainMenu";
     private CharSequence msg ="";
     private ListView listView;
@@ -145,4 +150,43 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
 
     }
 
+    public void voiceCommand(View view) {
+
+        Intent intent=new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT,"Where do you want to go");
+
+        startActivityForResult(intent,REQUEST_CODE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode)
+        {
+            case REQUEST_CODE:
+                if(resultCode==RESULT_OK && data != null)
+                {
+                    ArrayList<String> voiceIn= data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    Toast.makeText(this,"1"+voiceIn.get(0)+"1",Toast.LENGTH_LONG).show();
+                    String theVoice=voiceIn.get(0).toString();
+                    Log.d(TAG, "onActivityResult: "+theVoice);
+                    if (theVoice.contentEquals("weather"))
+                    {
+                        Intent intent =new Intent(this,Weather.class);
+                        startActivity(intent);
+                        Log.d(TAG, "onActivityResult: Content equal Weather");
+                    }
+                    if (theVoice.contentEquals("calendar"))
+                    {
+                        Intent intent =new Intent(this,Calander.class);
+                        startActivity(intent);
+                        Log.d(TAG, "onActivityResult: Content Calender spoken");
+                    }
+                }
+                break;
+        }
+    }
 }
