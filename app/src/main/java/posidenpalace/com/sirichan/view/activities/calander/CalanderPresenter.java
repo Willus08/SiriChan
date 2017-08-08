@@ -38,11 +38,11 @@ public class CalanderPresenter implements CalanderContract.Presenter{
 
     @Override
     public void SetCalendarDates(MaterialCalendarView calendar) {
-        List<userEvent> Events = new dbHelper().queryEvents();
-
-        for(int i = 0; i < Events.size(); i++)
-        {
-            calendar.setDateSelected(Events.get(i).getDate(),true);
-        }
+//        List<userEvent> Events = new dbHelper().queryEvents();
+//
+//        for(int i = 0; i < Events.size(); i++)
+//        {
+//            calendar.setDateSelected(Events.get(i).getDate(),true);
+//        }
     }
 }
