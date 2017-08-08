@@ -8,4 +8,7 @@
         <item>GPS</item>
         <item>Calender</item>
     </string-array>
+
+    <string name="facebook_app_id">116543728944236</string>
+    <string name="fb_login_protocol_scheme">fb116543728944236</string>
 </resources>
