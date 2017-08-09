@@ -179,12 +179,13 @@ public class Signup_Login extends AppCompatActivity implements Signup_LoginContr
     }
 
     private void updateUI(FirebaseUser currentUser) {
-        if(!currentUser.getDisplayName().equals(sharedPref.getString(getString(R.string.USER_EMAIL_KEY),"-1"))){
-            editor.putString(getString(R.string.USER_EMAIL_KEY),currentUser.getDisplayName());
-            editor.commit();
-        }
-        Intent intent = new Intent(Signup_Login.this,MainMenu.class);
-        startActivity(intent);
+     if (currentUser != null) {
+
+             Intent intent = new Intent(Signup_Login.this, MainMenu.class);
+             startActivity(intent);
+
+     }
+
     }
 
     @Override

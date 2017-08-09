@@ -16,6 +16,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -25,6 +27,7 @@ import posidenpalace.com.sirichan.R;
 import posidenpalace.com.sirichan.view.activities.calander.Calander;
 import posidenpalace.com.sirichan.view.activities.gps.GPS;
 import posidenpalace.com.sirichan.view.activities.locationservices.LocationServicesActivity;
+import posidenpalace.com.sirichan.view.activities.signup_login.Signup_Login;
 import posidenpalace.com.sirichan.view.activities.weather.Weather;
 import posidenpalace.com.sirichan.view.injection.main_menu.DaggerMainMenuComponent;
 
@@ -200,5 +203,11 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
                 }
                 break;
         }
+    }
+
+    public void logOut(View view) {
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(MainMenu.this, Signup_Login.class);
+        startActivity(intent);
     }
 }
