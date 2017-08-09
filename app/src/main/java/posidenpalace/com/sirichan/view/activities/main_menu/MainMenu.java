@@ -27,6 +27,7 @@ import javax.inject.Inject;
 import posidenpalace.com.sirichan.R;
 import posidenpalace.com.sirichan.view.activities.calander.Calander;
 import posidenpalace.com.sirichan.view.activities.gps.GPS;
+import posidenpalace.com.sirichan.view.activities.internet.Internet;
 import posidenpalace.com.sirichan.view.activities.locationservices.LocationServicesActivity;
 import posidenpalace.com.sirichan.view.activities.signup_login.Signup_Login;
 import posidenpalace.com.sirichan.view.activities.weather.Weather;
@@ -152,6 +153,12 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
                     msg = "Location Services";
                     startActivity(LocationIntent);
                     break;
+                case 4:
+                    Intent intent = new Intent(this, Internet.class);
+                    msg = "Internet";
+                    startActivity(intent);
+                    break;
+
             }
 
         Toast output = Toast.makeText(this,"Going to " + msg,Toast.LENGTH_SHORT);
@@ -200,6 +207,12 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
                         Intent intent =new Intent(this,LocationServicesActivity.class);
                         startActivity(intent);
                         Log.d(TAG, "onActivityResult: Content equal Weather");
+                    }
+                    if (theVoice.substring(0,6).contentEquals("search")){
+                        Intent intent = new Intent(this, Internet.class);
+                        intent.putExtra("voice", theVoice.substring(6));
+                        startActivity(intent);
+                        Log.d(TAG, "onActivityResult: Content equal Search");
                     }
                 }
                 break;

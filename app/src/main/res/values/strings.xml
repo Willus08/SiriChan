@@ -8,6 +8,7 @@
         <item>GPS</item>
         <item>Calender</item>
         <item>Location Services</item>
+        <item>Internet</item>
     </string-array>
 
     <string name="facebook_app_id">116543728944236</string>
