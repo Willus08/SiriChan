@@ -175,7 +175,7 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
                 if(resultCode==RESULT_OK && data != null)
                 {
                     ArrayList<String> voiceIn= data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                    Toast.makeText(this,"1"+voiceIn.get(0)+"1",Toast.LENGTH_LONG).show();
+                    Toast.makeText(this,voiceIn.get(0),Toast.LENGTH_LONG).show();
                     String theVoice=voiceIn.get(0).toString();
                     Log.d(TAG, "onActivityResult: "+theVoice);
                     if (theVoice.contentEquals("weather"))
@@ -189,6 +189,13 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
                         Intent intent =new Intent(this,Calander.class);
                         startActivity(intent);
                         Log.d(TAG, "onActivityResult: Content Calender spoken");
+                    }
+
+                    if (theVoice.contentEquals("GPS"))
+                    {
+                        Intent intent =new Intent(this,LocationServicesActivity.class);
+                        startActivity(intent);
+                        Log.d(TAG, "onActivityResult: Content equal Weather");
                     }
                 }
                 break;
