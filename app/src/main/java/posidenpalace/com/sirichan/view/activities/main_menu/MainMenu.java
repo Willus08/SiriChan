@@ -6,9 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.location.Location;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
@@ -31,7 +28,6 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.facebook.login.LoginManager;
 import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -320,7 +316,8 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
                     }
                     if (theVoice.contains("search")){
                         Intent intent = new Intent(this, Internet.class);
-                        intent.putExtra("voice", theVoice.substring(7));
+
+                        intent.putExtra("voice", theVoice.substring(0,theVoice.indexOf("search"))+ theVoice.substring(theVoice.indexOf("search")+6));
                         startActivity(intent);
                         Log.d(TAG, "onActivityResult: Content equal Search");
                     }
