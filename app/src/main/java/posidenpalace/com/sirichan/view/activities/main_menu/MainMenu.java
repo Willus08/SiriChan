@@ -57,8 +57,10 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
     private ListView listView;
     private DrawerLayout drawerLayout;
     private String currentDateTimeString;
+    private String todaysDate;
     private Reciever reciever;
     private SimpleDateFormat sdf=new SimpleDateFormat("hh:mm a");
+    private SimpleDateFormat datesdf=new SimpleDateFormat("MM/dd/yy");
     private Date d;
     private IntentFilter filter;
     private FusedLocationProviderClient fusedLocation;
@@ -80,6 +82,8 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
         d=new Date();
         currentDateTimeString = sdf.format(d);
         time.setText(currentDateTimeString);
+        todaysDate=datesdf.format(d);
+        date.setText(todaysDate);
     }
 
     @BindView(R.id.ivMMPicture)
@@ -90,6 +94,10 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
 
     @BindView(R.id.tvMMTime)
     TextView time;
+
+    @BindView(R.id.tvMMDate)
+    TextView date;
+
     // checks for the permissions needed for the app
     private void checkPermissons() {
         if (ContextCompat.checkSelfPermission(this,
@@ -314,6 +322,8 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
             d=new Date();
             currentDateTimeString = sdf.format(d);
             time.setText(currentDateTimeString);
+            todaysDate=datesdf.format(d);
+            date.setText(todaysDate);
 
         }
     }
