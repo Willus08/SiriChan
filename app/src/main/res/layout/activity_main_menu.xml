@@ -11,11 +11,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/cardview_dark_background"
         android:orientation="vertical">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tvMMDate"
+            android:textColor="@color/colorWhite"
             android:textSize="20sp"
             android:gravity="center"
             android:text="10/17/2017"/>
@@ -23,6 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tvMMTime"
+            android:textColor="@color/colorWhite"
             android:textSize="20sp"
             android:gravity="center"
             android:text="12:00 p.m."/>
@@ -43,13 +46,14 @@
             android:onClick="logOut"
             android:id="@+id/btnMMLogout"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="voice comand"
-            android:layout_gravity="center"
+
+        <ImageButton
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/btnMMVoiceCommand"
+            android:background="@drawable/talk_button"
             android:onClick="voiceCommand"
-            android:id="@+id/btnMMVoiceCommand"/>
+            android:layout_width="100sp"
+            android:layout_height="100sp" />
 
     </LinearLayout>
     <!-- sets up the drawers items-->
