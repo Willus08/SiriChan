@@ -7,18 +7,6 @@
     android:orientation="vertical"
     tools:context="posidenpalace.com.sirichan.view.activities.internet.Internet">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="search"
-        android:id="@+id/etIsearchBar"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnIsearchButton"
-        android:onClick="startSearch"
-        android:text="Search"/>
 
     <WebView
         android:layout_width="match_parent"

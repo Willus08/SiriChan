@@ -208,9 +208,9 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
                         startActivity(intent);
                         Log.d(TAG, "onActivityResult: Content equal Weather");
                     }
-                    if (theVoice.substring(0,6).contentEquals("search")){
+                    if (theVoice.contains("search")){
                         Intent intent = new Intent(this, Internet.class);
-                        intent.putExtra("voice", theVoice.substring(6));
+                        intent.putExtra("voice", theVoice.substring(7));
                         startActivity(intent);
                         Log.d(TAG, "onActivityResult: Content equal Search");
                     }
