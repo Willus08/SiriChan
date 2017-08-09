@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.prolificinteractive.materialcalendarview.CalendarDay;
@@ -22,6 +24,7 @@ import posidenpalace.com.sirichan.view.injection.calander.DaggerCalanderComponen
 
 
 public class Calander extends AppCompatActivity implements CalanderContract.View{
+    private static final String TAG = "Calender";
     @Inject CalanderPresenter presenter;
 
     // Calendar
@@ -37,6 +40,8 @@ public class Calander extends AppCompatActivity implements CalanderContract.View
         presenter.addView(this);
         presenter.setCalendarRange(this.calendar);
         presenter.SetCalendarDates(this.calendar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setShowHideAnimationEnabled(true);
 
         this.calendar.setOnDateChangedListener(new OnDateSelectedListener() {
             @Override
@@ -69,5 +74,17 @@ public class Calander extends AppCompatActivity implements CalanderContract.View
     //Button clicks
     public void onAddEvent(View view) {
        // Intent intent = new Intent(Calander.this,)
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(item.getItemId()==android.R.id.home)
+        {
+            Log.d(TAG, "onOptionsItemSelected: Home selected");
+            finish();
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

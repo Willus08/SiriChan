@@ -2,6 +2,8 @@ package posidenpalace.com.sirichan.view.activities.internet;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.MenuItem;
 import android.webkit.WebView;
 import android.widget.Toast;
 
@@ -25,6 +27,8 @@ public class Internet extends AppCompatActivity implements InternetContract.View
         presenter.addView(this);
         internet = (WebView) findViewById(R.id.wvIinternet);
         internet.getSettings().setJavaScriptEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setShowHideAnimationEnabled(true);
         searchText = getIntent().getStringExtra("voice");
         if (searchText != null ){
             Toast.makeText(this, "Seraching: " + searchText, Toast.LENGTH_SHORT).show();
@@ -43,6 +47,18 @@ public class Internet extends AppCompatActivity implements InternetContract.View
     @Override
     public void showError(String error) {
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(item.getItemId()==android.R.id.home)
+        {
+            Log.d(TAG, "onOptionsItemSelected: Home selected");
+            finish();
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }

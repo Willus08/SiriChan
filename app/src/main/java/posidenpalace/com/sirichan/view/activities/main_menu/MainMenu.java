@@ -45,7 +45,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import posidenpalace.com.sirichan.R;
 import posidenpalace.com.sirichan.view.activities.calander.Calander;
-import posidenpalace.com.sirichan.view.activities.gps.GPS;
 import posidenpalace.com.sirichan.view.activities.internet.Internet;
 import posidenpalace.com.sirichan.view.activities.locationservices.LocationServicesActivity;
 import posidenpalace.com.sirichan.view.activities.restcalls.model.weathermodel.WeatherDataPojo;
@@ -212,26 +211,25 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
                 case 0:
                     Intent weatherIntent = new Intent(MainMenu.this, Weather.class);
                     msg = "Weather";
+                    drawerLayout.closeDrawer(Gravity.START);
                     startActivity(weatherIntent);
                     break;
                 case 1:
-                    Intent gpsIntent = new Intent(MainMenu.this, GPS.class);
-                    msg = "GPS";
-                    startActivity(gpsIntent);
-                    break;
-                case 2:
                     Intent calanderIntent = new Intent(MainMenu.this, Calander.class);
                     msg = "Calander";
+                    drawerLayout.closeDrawer(Gravity.START);
                     startActivity(calanderIntent);
                     break;
-                case 3:
+                case 2:
                     Intent LocationIntent = new Intent(MainMenu.this, LocationServicesActivity.class);
                     msg = "Location Services";
+                    drawerLayout.closeDrawer(Gravity.START);
                     startActivity(LocationIntent);
                     break;
-                case 4:
+                case 3:
                     Intent intent = new Intent(this, Internet.class);
                     msg = "Internet";
+                    drawerLayout.closeDrawer(Gravity.START);
                     startActivity(intent);
                     break;
 
