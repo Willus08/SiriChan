@@ -25,6 +25,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import posidenpalace.com.sirichan.R;
+import posidenpalace.com.sirichan.view.activities.main_menu.MainMenu;
 import posidenpalace.com.sirichan.view.activities.restcalls.model.weathermodel.WeatherDataPojo;
 import posidenpalace.com.sirichan.view.activities.restcalls.retrofithelpers.weatherhelper.WeatherRetroHelper;
 import retrofit2.Call;
@@ -42,7 +43,8 @@ public class SiriChanWidget extends AppWidgetProvider {
     private Date d;
     private int MyappWidgetId;
     private SimpleDateFormat sdf=new SimpleDateFormat("hh:mm a");
-    private BroadcastReceiver receiver;
+    private WidgetReciever receiver;
+    private IntentFilter intentFilter;
     private String currentDateTimeString;
     private AppWidgetTarget appWidgetTarget;
     private  AppWidgetManager MyappWidgetManager;
@@ -103,25 +105,10 @@ public class SiriChanWidget extends AppWidgetProvider {
         views = new RemoteViews(myContext.getPackageName(), R.layout.siri_chan_widget);
         MyappWidgetManager = AppWidgetManager.getInstance(myContext);
         thisWidget = new ComponentName(context, SiriChanWidget.class);
-        receiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context ctx, Intent intent)
-            {
-                Log.d("Broadcast", "onReceive: ");
-                if (intent.getAction().compareTo(Intent.ACTION_TIME_TICK) == 0) {
-                    d=new Date();
-                    currentDateTimeString = sdf.format(d);
-                    counter++;
-//                    currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
-                    views.setTextViewText(R.id.tvWidgeTime,currentDateTimeString);
-                    updateAppWidget(myContext,MyappWidgetManager,MyappWidgetId);
-                    //MyappWidgetManager.updateAppWidget(thisWidget, views);
-                    // update widget time here using System.currentTimeMillis()
-                }
-            }
-        };
+        receiver=new WidgetReciever();
+        intentFilter=new IntentFilter(Intent.ACTION_TIME_TICK);
 
-        context.getApplicationContext().registerReceiver(receiver, new IntentFilter(Intent.ACTION_TIME_TICK));
+        context.getApplicationContext().registerReceiver(receiver, intentFilter);
         // Enter relevant functionality for when the first widget is created
     }
 
@@ -143,7 +130,7 @@ public class SiriChanWidget extends AppWidgetProvider {
                 Log.d(TAG, "onResponse: RestCall");
                 views.setTextViewText(R.id.tvWidgetCity,"City: "+response.body().getName());
                 Glide.with(myContext.getApplicationContext()).load("http://openweathermap.org/img/w/"+response.body().getWeather().get(0).getIcon()+".png").asBitmap().into(appWidgetTarget);
-                views.setTextViewText(R.id.tvWidgetWeatherType,response.body().getWeather().get(0).getDescription()+" "+counter);
+                views.setTextViewText(R.id.tvWidgetWeatherType,response.body().getWeather().get(0).getDescription());
                 MyappWidgetManager.updateAppWidget(thisWidget, views);
             }
 
@@ -152,6 +139,22 @@ public class SiriChanWidget extends AppWidgetProvider {
 
             }
         });
+    }
+
+    public class WidgetReciever extends BroadcastReceiver
+    {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            d=new Date();
+            currentDateTimeString = sdf.format(d);
+            //counter++;
+//                    currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
+            views.setTextViewText(R.id.tvWidgeTime,currentDateTimeString);
+            updateAppWidget(myContext,MyappWidgetManager,MyappWidgetId);
+            //MyappWidgetManager.updateAppWidget(thisWidget, views);
+            // update widget time here using System.currentTimeMillis()
+        }
     }
 }
 
