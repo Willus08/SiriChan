@@ -12,6 +12,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.location.Location;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
+import android.speech.tts.TextToSpeech;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -66,6 +67,7 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
     private SimpleDateFormat sdf=new SimpleDateFormat("hh:mm a");
     private SimpleDateFormat datesdf=new SimpleDateFormat("MM/dd/yy");
     private Date d;
+    private TextToSpeech myTTS;
     private IntentFilter filter;
     private FusedLocationProviderClient fusedLocation;
 
@@ -88,6 +90,16 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
         time.setText(currentDateTimeString);
         todaysDate=datesdf.format(d);
         date.setText(todaysDate);
+
+        myTTS=new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int i) {
+
+            }
+        });
+
+        myTTS.setLanguage(Locale.US);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setShowHideAnimationEnabled(true);
 
@@ -242,12 +254,35 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
 
     public void voiceCommand(View view) {
 
-        Intent intent=new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
-        intent.putExtra(RecognizerIntent.EXTRA_PROMPT,"Where do you want to go");
 
-        startActivityForResult(intent,REQUEST_CODE);
+        myTTS.speak("Where do you want to go?", TextToSpeech.QUEUE_FLUSH, null);
+
+        Thread thread= new Thread() {
+
+            @Override
+            public void run() {
+                try {
+                    sleep(1000);
+                    Intent intent=new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+                    intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+                    intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+                    intent.putExtra(RecognizerIntent.EXTRA_PROMPT,"Where do you want to go");
+
+                    startActivityForResult(intent,REQUEST_CODE);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        thread.start();
+//        Intent intent=new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+//        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+//        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+//        intent.putExtra(RecognizerIntent.EXTRA_PROMPT,"Where do you want to go");
+//
+//        startActivityForResult(intent,REQUEST_CODE);
+
+
     }
 
     @Override
