@@ -1,6 +1,7 @@
 package posidenpalace.com.sirichan.view.activities.signup_login;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -41,7 +42,8 @@ public class Signup_Login extends AppCompatActivity implements Signup_LoginContr
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private CallbackManager mCallbackManager;
-
+    SharedPreferences.Editor editor;
+    SharedPreferences sharedPref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,6 +108,7 @@ public class Signup_Login extends AppCompatActivity implements Signup_LoginContr
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     // User is signed in
+                    updateUI(user);
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
                 } else {
                     // User is signed out
@@ -173,6 +176,12 @@ public class Signup_Login extends AppCompatActivity implements Signup_LoginContr
     }
 
     private void updateUI(FirebaseUser currentUser) {
+     if (currentUser != null) {
+
+             Intent intent = new Intent(Signup_Login.this, MainMenu.class);
+             startActivity(intent);
+
+     }
 
     }
 
@@ -212,8 +221,8 @@ public class Signup_Login extends AppCompatActivity implements Signup_LoginContr
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
                                 if (task.isSuccessful()){
-                                    Intent intent = new Intent(Signup_Login.this, MainMenu.class);
-                                    startActivity(intent);
+                                    FirebaseUser user = mAuth.getCurrentUser();
+                                    updateUI(user);
                               }
                                 // If sign in fails, display a message to the user. If sign in succeeds
                                 // the auth state listener will be notified and logic to handle the

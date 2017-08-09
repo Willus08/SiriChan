@@ -12,4 +12,6 @@
 
     <string name="facebook_app_id">116543728944236</string>
     <string name="fb_login_protocol_scheme">fb116543728944236</string>
+    <string name="USER_EMAIL_KEY">USER_EMAIL</string>
+
 </resources>
