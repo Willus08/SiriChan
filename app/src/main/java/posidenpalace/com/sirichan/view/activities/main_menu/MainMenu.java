@@ -6,6 +6,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.location.Location;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
@@ -15,6 +18,8 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -25,8 +30,8 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.facebook.login.LoginManager;
 import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.vision.text.Text;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.text.SimpleDateFormat;
@@ -57,8 +62,10 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
     private ListView listView;
     private DrawerLayout drawerLayout;
     private String currentDateTimeString;
+    private String todaysDate;
     private Reciever reciever;
     private SimpleDateFormat sdf=new SimpleDateFormat("hh:mm a");
+    private SimpleDateFormat datesdf=new SimpleDateFormat("MM/dd/yy");
     private Date d;
     private IntentFilter filter;
     private FusedLocationProviderClient fusedLocation;
@@ -80,6 +87,13 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
         d=new Date();
         currentDateTimeString = sdf.format(d);
         time.setText(currentDateTimeString);
+        todaysDate=datesdf.format(d);
+        date.setText(todaysDate);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setShowHideAnimationEnabled(true);
+
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.hamburger_icon_scaled);
+        getSupportActionBar().setHomeButtonEnabled(true);
     }
 
     @BindView(R.id.ivMMPicture)
@@ -90,6 +104,10 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
 
     @BindView(R.id.tvMMTime)
     TextView time;
+
+    @BindView(R.id.tvMMDate)
+    TextView date;
+
     // checks for the permissions needed for the app
     private void checkPermissons() {
         if (ContextCompat.checkSelfPermission(this,
@@ -314,7 +332,27 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
             d=new Date();
             currentDateTimeString = sdf.format(d);
             time.setText(currentDateTimeString);
+            todaysDate=datesdf.format(d);
+            date.setText(todaysDate);
 
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(item.getItemId()==android.R.id.home)
+        {
+            Log.d(TAG, "onOptionsItemSelected: Home selected");
+            if(drawerLayout.isDrawerOpen(Gravity.START))
+            {
+                drawerLayout.closeDrawer(Gravity.START);
+            }
+            else {
+                drawerLayout.openDrawer(Gravity.START);
+            }
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
