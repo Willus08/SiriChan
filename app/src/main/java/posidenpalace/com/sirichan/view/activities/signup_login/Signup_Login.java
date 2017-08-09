@@ -1,6 +1,5 @@
 package posidenpalace.com.sirichan.view.activities.signup_login;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -51,8 +50,6 @@ public class Signup_Login extends AppCompatActivity implements Signup_LoginContr
         FacebookSdk.sdkInitialize(getApplicationContext());
         FirebaseApp.initializeApp(this);
         setContentView(R.layout.activity_signup__login);
-        sharedPref = getPreferences(Context.MODE_PRIVATE);
-        editor = sharedPref.edit();
         mAuth = FirebaseAuth.getInstance();
         ButterKnife.bind(this);
         setupFirebaseLogin();
