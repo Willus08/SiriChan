@@ -5,10 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import javax.inject.Inject;
 
 import posidenpalace.com.sirichan.R;
@@ -28,7 +24,7 @@ public class ListOfEvents extends AppCompatActivity implements ListOfEventsContr
         setupDagger();
 
         String dateString = savedInstanceState.getString("DATESTRING");
-        RealmHelper helper = new RealmHelper();
+        RealmHelper helper = new RealmHelper(this);
         this.recyclerView = (RecyclerView)findViewById(R.id.my_recycler_view);
         this.recyclerView.setLayoutManager(new LinearLayoutManager(this));
         this.adapter = new TimeListAdapter(this,helper.gettime(dateString));

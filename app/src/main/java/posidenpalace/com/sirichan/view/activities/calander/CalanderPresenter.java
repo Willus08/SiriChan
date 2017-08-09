@@ -1,24 +1,33 @@
 package posidenpalace.com.sirichan.view.activities.calander;
 
 
+import android.content.Context;
+
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.CalendarMode;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+
+import posidenpalace.com.sirichan.model.RealmDB.RealmHelper;
+import posidenpalace.com.sirichan.model.RealmDB.UserEvent;
 
 public class CalanderPresenter implements CalanderContract.Presenter{
 
-    CalanderContract.View view;
+    private CalanderContract.View view;
+    private Context context;
 
     @Override
     public void addView(CalanderContract.View view) {
         this.view = view;
+        this.context = (Context)view;
     }
 
     @Override
     public void removeView() {
         this.view = null;
+        this.context = null;
     }
 
     @Override
@@ -33,12 +42,11 @@ public class CalanderPresenter implements CalanderContract.Presenter{
     }
 
     @Override
-    public void SetCalendarDates(MaterialCalendarView calendar) {
-//        List<userEvent> Events = new dbHelper().queryEvents();
-//
-//        for(int i = 0; i < Events.size(); i++)
-//        {
-//            calendar.setDateSelected(Events.get(i).getDate(),true);
-//        }
+    public void SetCalendarDates(MaterialCalendarView calendar,RealmHelper helper) {
+        ArrayList<UserEvent> events = helper.getEvents();
+        for(UserEvent event:events)
+        {
+            calendar.setDateSelected(event.getDate(),true);
+        }
     }
 }

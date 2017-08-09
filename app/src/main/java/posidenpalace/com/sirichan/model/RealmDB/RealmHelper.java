@@ -1,9 +1,11 @@
 package posidenpalace.com.sirichan.model.RealmDB;
 
+import android.content.Context;
+
 import java.util.ArrayList;
-import java.util.Date;
 
 import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import io.realm.RealmResults;
 
 /**
@@ -12,10 +14,20 @@ import io.realm.RealmResults;
 
 public class RealmHelper
 {
-    Realm realm;
-    public RealmHelper() {
-        this.realm = Realm.getDefaultInstance();
+    private Realm realm;
+    public RealmHelper(Context context)
+    {
+
+        Realm.init(context);
+        RealmConfiguration config = new RealmConfiguration.Builder()
+                .name("SiriChan.realm")
+                .schemaVersion(1)
+                .deleteRealmIfMigrationNeeded()
+                .build();
+        Realm.setDefaultConfiguration(config);
+        Realm realm = Realm.getDefaultInstance();
     }
+
 
     public ArrayList<UserEvent> gettime(String date)
     {
@@ -44,6 +56,8 @@ public class RealmHelper
 
     public void insertUser(User user)
     {
+        user.setId(this.eventByone());
+        this.realm = Realm.getDefaultInstance();
         realm.beginTransaction();
         realm.insert(user);
         realm.commitTransaction();
@@ -51,6 +65,7 @@ public class RealmHelper
 
     public void insertUserEvent(UserEvent event)
     {
+        event.setId(this.eventByone());
         User user = realm.where(User.class).equalTo("user.loggedin", true).findFirst();
         realm.beginTransaction();
         realm.insert(event);
@@ -59,8 +74,34 @@ public class RealmHelper
 
     }
 
-    public void removeEvent(Date date)
+    public void removeEvent(String eventTitle)
     {
-        UserEvent
+        User user = this.realm.where(User.class).equalTo("userloggedin",true).findFirst();
+        UserEvent event = this.realm.where(UserEvent.class).equalTo("event.eventitle",eventTitle).findFirst();
+        realm.beginTransaction();
+        user.getEvents().remove(event);
+        event.deleteFromRealm();
+        realm.commitTransaction();
     }
+
+    public void logOut()
+    {
+        User user = this.realm.where(User.class).equalTo("user.loggedin",true).findFirst();
+        realm.beginTransaction();
+        user.setLoggedin(false);
+        realm.commitTransaction();
+    }
+
+    public Long userByone()
+    {
+        long id = realm.where(User.class).max("id").longValue();
+        return id + 1;
+    }
+
+    public Long eventByone()
+    {
+        long id = realm.where(UserEvent.class).max("id").longValue();
+        return id + 1;
+    }
+
 }

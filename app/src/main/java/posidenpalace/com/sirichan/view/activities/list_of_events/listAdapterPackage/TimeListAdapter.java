@@ -1,6 +1,7 @@
 package posidenpalace.com.sirichan.view.activities.list_of_events.listAdapterPackage;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,10 +13,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-import butterknife.OnClick;
 import posidenpalace.com.sirichan.R;
 import posidenpalace.com.sirichan.model.RealmDB.UserEvent;
-import posidenpalace.com.sirichan.view.activities.list_of_events.ListOfEventsContract;
+import posidenpalace.com.sirichan.view.activities.selected_date.SelectedDate;
 
 /**
  * Created by michaeliverson on 8/9/17.
@@ -44,6 +44,7 @@ public class TimeListAdapter extends RecyclerView.Adapter<TimeListAdapter.ViewHo
         DateFormat df = new SimpleDateFormat("HH:mm:ss");
         holder.tvTime.setText(df.format(this.events.get(position).getDate()));
         holder.tvEvent.setText(this.events.get(position).getEventtitle());
+        holder.event = this.events.get(position);
     }
 
     @Override
@@ -57,6 +58,7 @@ public class TimeListAdapter extends RecyclerView.Adapter<TimeListAdapter.ViewHo
         public CardView cardView;
         public TextView tvTime;
         public TextView tvEvent;
+        public UserEvent event;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -64,12 +66,16 @@ public class TimeListAdapter extends RecyclerView.Adapter<TimeListAdapter.ViewHo
             this.tvEvent = (TextView)itemView.findViewById(R.id.tvEvent);
             this.tvTime = (TextView)itemView.findViewById(R.id.tvTime);
             this.cardView = (CardView)itemView.findViewById(R.id.cardView);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(view.getContext(), SelectedDate.class);
+                    intent.putExtra("EVENT",event);
+                    view.getContext().startActivity(intent);
+                }
+            });
         }
 
-        @Override
-        public  void onClisk(View view)
-        {
-
-        }
     }
 }

@@ -1,5 +1,7 @@
 package posidenpalace.com.sirichan.model.RealmDB;
 
+import java.io.Serializable;
+
 import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
@@ -9,7 +11,7 @@ import io.realm.annotations.Required;
  * Created by michaeliverson on 8/8/17.
  */
 
-public class User extends RealmObject{
+public class User extends RealmObject implements Serializable{
 
     @PrimaryKey
     @Required

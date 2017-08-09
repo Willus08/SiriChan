@@ -1,5 +1,6 @@
 package posidenpalace.com.sirichan.model.RealmDB;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import io.realm.RealmObject;
@@ -10,7 +11,7 @@ import io.realm.annotations.Required;
  * Created by michaeliverson on 8/8/17.
  */
 
-public class UserEvent extends RealmObject {
+public class UserEvent extends RealmObject implements Serializable {
 
     @PrimaryKey
     @Required

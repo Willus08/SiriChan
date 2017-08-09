@@ -20,8 +20,6 @@ android {
 }
 
 apply plugin: 'com.android.application'
-apply plugin: 'org.greenrobot.greendao' // apply plugin
-
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
