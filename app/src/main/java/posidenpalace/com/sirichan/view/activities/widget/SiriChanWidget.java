@@ -41,7 +41,7 @@ public class SiriChanWidget extends AppWidgetProvider {
     private Context myContext;
     private Date d;
     private int MyappWidgetId;
-    private SimpleDateFormat sdf=new SimpleDateFormat("hh:mm a");;
+    private SimpleDateFormat sdf=new SimpleDateFormat("hh:mm a");
     private BroadcastReceiver receiver;
     private String currentDateTimeString;
     private AppWidgetTarget appWidgetTarget;

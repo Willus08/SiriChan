@@ -69,8 +69,8 @@
 
         <ImageView
             android:id="@+id/ivMMPicture"
-            android:background="@drawable/cloudy"
             android:layout_width="75sp"
+            android:background="@drawable/back_for_weather"
             android:layout_centerHorizontal="true"
             android:layout_height="75sp"
             android:layout_gravity="center"/>
@@ -78,13 +78,13 @@
             <TextView
                 android:id="@+id/tvMMWeatherType"
                 android:layout_width="wrap_content"
+                android:paddingTop="4sp"
                 android:layout_centerHorizontal="true"
                 android:layout_height="wrap_content"
-                android:text="Cloudy"
                 android:shadowColor="@color/cardview_dark_background"
                 android:shadowDx="4"
                 android:shadowDy="4"
-                android:shadowRadius="2"
+                android:shadowRadius="4"
                 android:textColor="@color/colorWhite"
                 android:textSize="15sp"
                 android:textStyle="bold" />

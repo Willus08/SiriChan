@@ -1,8 +1,12 @@
 package posidenpalace.com.sirichan.view.activities.main_menu;
 
 import android.Manifest;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.location.Location;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.annotation.NonNull;
@@ -13,46 +17,78 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.facebook.login.LoginManager;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.vision.text.Text;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Locale;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import posidenpalace.com.sirichan.R;
 import posidenpalace.com.sirichan.view.activities.calander.Calander;
 import posidenpalace.com.sirichan.view.activities.gps.GPS;
 import posidenpalace.com.sirichan.view.activities.locationservices.LocationServicesActivity;
+import posidenpalace.com.sirichan.view.activities.restcalls.model.weathermodel.WeatherDataPojo;
 import posidenpalace.com.sirichan.view.activities.signup_login.Signup_Login;
 import posidenpalace.com.sirichan.view.activities.weather.Weather;
 import posidenpalace.com.sirichan.view.injection.main_menu.DaggerMainMenuComponent;
+import retrofit2.Response;
 
-public class MainMenu extends AppCompatActivity implements MainMenuContract.View,AdapterView.OnItemClickListener {
+public class MainMenu extends AppCompatActivity implements MainMenuContract.View, AdapterView.OnItemClickListener {
     private static final int MY_PERMISSIONS_REQUEST_REQUEST_LOCATION = 0;
-    private static final int REQUEST_CODE=143;
+    private static final int REQUEST_CODE = 143;
     private static final String TAG = "MainMenu";
-    private CharSequence msg ="";
+    private CharSequence msg = "";
     private ListView listView;
     private DrawerLayout drawerLayout;
-    @Inject MainMenuPresenter presenter;
+    private String currentDateTimeString;
+    private Reciever reciever;
+    private SimpleDateFormat sdf=new SimpleDateFormat("hh:mm a");
+    private Date d;
+    private IntentFilter filter;
+    private FusedLocationProviderClient fusedLocation;
+
+    @Inject
+    MainMenuPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
         drawerLayout = (DrawerLayout) findViewById(R.id.dlMMDrawerLayout);
-        listView =(ListView) findViewById(R.id.lvMenus);
+        listView = (ListView) findViewById(R.id.lvMenus);
         listView.setOnItemClickListener(this);
         setupDagger();
         presenter.addView(this);
+        ButterKnife.bind(this);
         checkPermissons();
+        d=new Date();
+        currentDateTimeString = sdf.format(d);
+        time.setText(currentDateTimeString);
     }
 
+    @BindView(R.id.ivMMPicture)
+    ImageView weatherPicture;
+
+    @BindView(R.id.tvMMWeatherType)
+    TextView weatherType;
+
+    @BindView(R.id.tvMMTime)
+    TextView time;
     // checks for the permissions needed for the app
     private void checkPermissons() {
         if (ContextCompat.checkSelfPermission(this,
@@ -85,13 +121,35 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
                 // result of the request.
                 return;
             }
-        }
-        else
-        {
+        } else {
+
+
+            updateWeather();
             //use this to to start if everything is accepted
             //Intent intent=new Intent(this, Weather.class);
             //startActivity(intent);
         }
+    }
+
+    private void updateWeather() {
+
+        fusedLocation = new FusedLocationProviderClient(this);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        fusedLocation.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
+            @Override
+            public void onSuccess(Location location) {
+                presenter.getLocationsWeather(location.getLatitude(), location.getLongitude());
+            }
+        });
     }
 
     @Override
@@ -211,5 +269,39 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
         LoginManager.getInstance().logOut();
         Intent intent = new Intent(MainMenu.this, Signup_Login.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void weatherResponse(Response<WeatherDataPojo> response) {
+        Glide.with(this).load("http://openweathermap.org/img/w/"+response.body().getWeather().get(0).getIcon()+".png").into(weatherPicture);
+        weatherType.setText(response.body().getWeather().get(0).getDescription());
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        filter=new IntentFilter(Intent.ACTION_TIME_TICK);
+        reciever=new Reciever();
+        registerReceiver(reciever,filter);
+
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        unregisterReceiver(reciever);
+    }
+
+    public class Reciever extends BroadcastReceiver
+    {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            updateWeather();
+            d=new Date();
+            currentDateTimeString = sdf.format(d);
+            time.setText(currentDateTimeString);
+
+        }
     }
 }
