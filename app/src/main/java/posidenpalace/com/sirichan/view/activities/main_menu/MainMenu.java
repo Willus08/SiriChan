@@ -24,6 +24,7 @@ import javax.inject.Inject;
 import posidenpalace.com.sirichan.R;
 import posidenpalace.com.sirichan.view.activities.calander.Calander;
 import posidenpalace.com.sirichan.view.activities.gps.GPS;
+import posidenpalace.com.sirichan.view.activities.locationservices.LocationServicesActivity;
 import posidenpalace.com.sirichan.view.activities.weather.Weather;
 import posidenpalace.com.sirichan.view.injection.main_menu.DaggerMainMenuComponent;
 
@@ -142,7 +143,11 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
                     msg = "Calander";
                     startActivity(calanderIntent);
                     break;
-
+                case 3:
+                    Intent LocationIntent = new Intent(MainMenu.this, LocationServicesActivity.class);
+                    msg = "Location Services";
+                    startActivity(LocationIntent);
+                    break;
             }
 
         Toast output = Toast.makeText(this,"Going to " + msg,Toast.LENGTH_SHORT);
