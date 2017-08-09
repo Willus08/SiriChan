@@ -6,10 +6,6 @@ import com.prolificinteractive.materialcalendarview.CalendarMode;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 
 import java.util.Calendar;
-import java.util.List;
-
-import posidenpalace.com.sirichan.model.dbHelper;
-import posidenpalace.com.sirichan.model.userEvent;
 
 public class CalanderPresenter implements CalanderContract.Presenter{
 
