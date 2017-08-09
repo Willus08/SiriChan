@@ -7,6 +7,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -47,6 +49,8 @@ public class Weather extends AppCompatActivity implements WeatherContract.View {
         }
         presenter.addView(this);
         ButterKnife.bind(this);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setShowHideAnimationEnabled(true);
         fusedLocation=new FusedLocationProviderClient(this);
         fusedLocation.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
             @Override
@@ -99,5 +103,18 @@ public class Weather extends AppCompatActivity implements WeatherContract.View {
         weatherType.setText(response.body().getWeather().get(0).getDescription());
         humidity.setText("Humidity: "+response.body().getMain().getHumidity()+"%");
         city.setText("City: "+response.body().getName());
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(item.getItemId()==android.R.id.home)
+        {
+            Log.d(TAG, "onOptionsItemSelected: Home selected");
+            finish();
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

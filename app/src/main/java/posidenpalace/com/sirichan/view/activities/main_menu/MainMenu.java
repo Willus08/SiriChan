@@ -211,21 +211,25 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
                 case 0:
                     Intent weatherIntent = new Intent(MainMenu.this, Weather.class);
                     msg = "Weather";
+                    drawerLayout.closeDrawer(Gravity.START);
                     startActivity(weatherIntent);
                     break;
                 case 1:
                     Intent calanderIntent = new Intent(MainMenu.this, Calander.class);
                     msg = "Calander";
+                    drawerLayout.closeDrawer(Gravity.START);
                     startActivity(calanderIntent);
                     break;
                 case 2:
                     Intent LocationIntent = new Intent(MainMenu.this, LocationServicesActivity.class);
                     msg = "Location Services";
+                    drawerLayout.closeDrawer(Gravity.START);
                     startActivity(LocationIntent);
                     break;
                 case 3:
                     Intent intent = new Intent(this, Internet.class);
                     msg = "Internet";
+                    drawerLayout.closeDrawer(Gravity.START);
                     startActivity(intent);
                     break;
 

@@ -10,6 +10,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -55,6 +56,8 @@ public class LocationServicesActivity extends AppCompatActivity implements OnMap
     protected void onCreate(Bundle savedInstanceState) {
         Log.d(TAG, "onCreate: ");
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setShowHideAnimationEnabled(true);
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             //you can pass multiple request in this string array permissions
             String[] permissions = new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION};
@@ -257,6 +260,18 @@ public class LocationServicesActivity extends AppCompatActivity implements OnMap
             .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
             .position(latLng);
         searchedPlaceMarker = mGoogleMap.addMarker(options);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(item.getItemId()==android.R.id.home)
+        {
+            Log.d(TAG, "onOptionsItemSelected: Home selected");
+            finish();
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }
