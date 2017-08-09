@@ -29,7 +29,6 @@ public class User extends RealmObject implements Serializable{
     @Required
     private Boolean loggedin;
 
-    @Required
     private RealmList<UserEvent> events;
 
     public Long getId() {

@@ -268,6 +268,7 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
                     intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
                     intent.putExtra(RecognizerIntent.EXTRA_PROMPT,"Where do you want to go");
 
+                    Log.d(TAG, "run: BLAAAA");
                     startActivityForResult(intent,REQUEST_CODE);
                 } catch (InterruptedException e) {
                     e.printStackTrace();

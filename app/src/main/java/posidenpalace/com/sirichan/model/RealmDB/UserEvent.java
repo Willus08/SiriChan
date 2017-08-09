@@ -54,7 +54,6 @@ public class UserEvent extends RealmObject implements Serializable {
         this.date = date;
     }
 
-    @Required
     private User user;
 
     public Long getId() {
