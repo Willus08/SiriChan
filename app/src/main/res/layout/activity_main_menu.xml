@@ -2,9 +2,9 @@
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dlMMDrawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/dlMMDrawerLayout"
     tools:context="posidenpalace.com.sirichan.view.activities.main_menu.MainMenu">
 
     <!--stuff to be in seen in the activity here -->
@@ -13,58 +13,101 @@
         android:layout_height="match_parent"
         android:background="@color/cardview_dark_background"
         android:orientation="vertical">
-        <TextView
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/tvMMDate"
-            android:textColor="@color/colorWhite"
-            android:textSize="20sp"
-            android:gravity="center"
-            android:text="10/17/2017"/>
-        <TextView
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_gravity="left"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvMMDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="10/17/2017"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvMMTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="12:00 p.m."
+                    android:textColor="@color/colorWhite"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btnMMLogout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:onClick="logOut"
+                    android:text="Log Out" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvMMTime"
-            android:textColor="@color/colorWhite"
-            android:textSize="20sp"
-            android:gravity="center"
-            android:text="12:00 p.m."/>
-        <!--Weather Information fragment will go here -->
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/flMMWetherContainer"
-            android:layout_gravity="center">
+            android:layout_height="wrap_content">
 
-        </FrameLayout>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Log Out"
-            android:layout_gravity="center"
-            android:onClick="logOut"
-            android:id="@+id/btnMMLogout"/>
+        <ImageView
+            android:id="@+id/ivMMPicture"
+            android:background="@drawable/cloudy"
+            android:layout_width="75sp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="75sp"
+            android:layout_gravity="center"/>
 
+            <TextView
+                android:id="@+id/tvMMWeatherType"
+                android:layout_width="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:text="Cloudy"
+                android:shadowColor="@color/cardview_dark_background"
+                android:shadowDx="4"
+                android:shadowDy="4"
+                android:shadowRadius="2"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
 
         <ImageButton
-            android:layout_gravity="center_horizontal"
             android:id="@+id/btnMMVoiceCommand"
-            android:background="@drawable/talk_button"
-            android:onClick="voiceCommand"
             android:layout_width="100sp"
-            android:layout_height="100sp" />
+            android:layout_height="100sp"
+            android:layout_gravity="center"
+            android:background="@drawable/talk_button"
+            android:onClick="voiceCommand" />
 
     </LinearLayout>
     <!-- sets up the drawers items-->
     <ListView
         android:id="@+id/lvMenus"
-        android:layout_gravity ="start"
         android:layout_width="240dp"
-        android:entries="@array/menuList"
         android:layout_height="match_parent"
-        android:divider="@null"
+        android:layout_gravity="start"
         android:background="@color/drawerBackground"
-        />
+        android:divider="@null"
+        android:entries="@array/menuList" />
 
 </android.support.v4.widget.DrawerLayout>
