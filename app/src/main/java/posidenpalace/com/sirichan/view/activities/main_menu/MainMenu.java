@@ -26,7 +26,6 @@ import com.bumptech.glide.Glide;
 import com.facebook.login.LoginManager;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.vision.text.Text;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.text.SimpleDateFormat;
