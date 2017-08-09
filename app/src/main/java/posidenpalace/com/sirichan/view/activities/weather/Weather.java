@@ -1,6 +1,10 @@
 package posidenpalace.com.sirichan.view.activities.weather;
 
 import android.Manifest;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.support.v4.app.ActivityCompat;
@@ -28,6 +32,8 @@ import retrofit2.Response;
 public class Weather extends AppCompatActivity implements WeatherContract.View {
     private static final String TAG = "Weather";
     private Location currentLocation;
+    private WeatherReciever reciever;
+    private IntentFilter intentFilter;
     private FusedLocationProviderClient fusedLocation;
     @Inject
     WeatherPresenter presenter;
@@ -51,12 +57,12 @@ public class Weather extends AppCompatActivity implements WeatherContract.View {
         ButterKnife.bind(this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setShowHideAnimationEnabled(true);
-        fusedLocation=new FusedLocationProviderClient(this);
+        fusedLocation = new FusedLocationProviderClient(this);
         fusedLocation.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
             @Override
             public void onSuccess(Location location) {
-                currentLocation=location;
-                presenter.getLocationsWeather(location.getLatitude(),location.getLongitude());
+                currentLocation = location;
+                presenter.getLocationsWeather(location.getLatitude(), location.getLongitude());
             }
         });
 
@@ -80,7 +86,7 @@ public class Weather extends AppCompatActivity implements WeatherContract.View {
     @BindView(R.id.tvWeatherCity)
     TextView city;
 
-    public void setupDagger(){
+    public void setupDagger() {
         DaggerWeatherComponent.create().inject(this);
     }
 
@@ -93,28 +99,67 @@ public class Weather extends AppCompatActivity implements WeatherContract.View {
     @Override
     public void weatherResponse(Response<WeatherDataPojo> response) {
 
-        Glide.with(this).load("http://openweathermap.org/img/w/"+response.body().getWeather().get(0).getIcon()+".png").into(weatherPicture);
-        double windSpeed=response.body().getWind().getSpeed()*2.2369;
-        wind.setText("Wind Speed: "+String.format("%.2f", windSpeed)+" Miles/Hour");
-        double kelvinTemp=response.body().getMain().getTemp();
-        kelvinTemp=(kelvinTemp * 9/5) - 459.67;
-        String temp=String.format("%.2f", kelvinTemp);
-        weatherTemperature.setText("Temperature: "+temp +"° F");
+        Glide.with(this).load("http://openweathermap.org/img/w/" + response.body().getWeather().get(0).getIcon() + ".png").into(weatherPicture);
+        double windSpeed = response.body().getWind().getSpeed() * 2.2369;
+        wind.setText("Wind Speed: " + String.format("%.2f", windSpeed) + " Miles/Hour");
+        double kelvinTemp = response.body().getMain().getTemp();
+        kelvinTemp = (kelvinTemp * 9 / 5) - 459.67;
+        String temp = String.format("%.2f", kelvinTemp);
+        weatherTemperature.setText("Temperature: " + temp + "° F");
         weatherType.setText(response.body().getWeather().get(0).getDescription());
-        humidity.setText("Humidity: "+response.body().getMain().getHumidity()+"%");
-        city.setText("City: "+response.body().getName());
+        humidity.setText("Humidity: " + response.body().getMain().getHumidity() + "%");
+        city.setText("City: " + response.body().getName());
     }
 
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        if(item.getItemId()==android.R.id.home)
-        {
+        if (item.getItemId() == android.R.id.home) {
             Log.d(TAG, "onOptionsItemSelected: Home selected");
             finish();
 
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        reciever=new WeatherReciever();
+        intentFilter=new IntentFilter(Intent.ACTION_TIME_TICK);
+        registerReceiver(reciever,intentFilter);
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        unregisterReceiver(reciever);
+    }
+
+    public class WeatherReciever extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            fusedLocation = new FusedLocationProviderClient(context);
+            if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                return;
+            }
+            fusedLocation.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
+                @Override
+                public void onSuccess(Location location) {
+                    currentLocation = location;
+                    presenter.getLocationsWeather(location.getLatitude(), location.getLongitude());
+                }
+            });
+        }
     }
 }
