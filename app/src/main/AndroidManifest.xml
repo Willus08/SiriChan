@@ -30,8 +30,8 @@
         <activity android:name=".view.activities.selected_date.SelectedDate" />
         <activity android:name=".view.activities.list_of_events.ListOfEvents" />
         <activity android:name=".view.activities.calander.Calander" />
-        <activity android:name=".view.activities.main_menu.MainMenu"/>
-        <activity android:name=".view.activities.locationservices.LocationServicesActivity"/>
+        <activity android:name=".view.activities.main_menu.MainMenu" />
+        <activity android:name=".view.activities.locationservices.LocationServicesActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -43,13 +43,16 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-        <meta-data android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id"/>
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
         <activity
             android:name=".view.activities.gps.GPS"
-            android:label="@string/title_activity_gps" >
+            android:label="@string/title_activity_gps">
             android:label="@string/title_activity_gps" />
         </activity>
+
         <receiver android:name=".view.activities.widget.SiriChanWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -59,20 +62,24 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/siri_chan_widget_info" />
         </receiver>
-        <activity android:name="com.facebook.FacebookActivity"
-            android:configChanges=
-                "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name" />
         <activity
             android:name="com.facebook.CustomTabActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
+        <activity android:name=".view.activities.internet.Internet"></activity>
     </application>
 
 </manifest>
