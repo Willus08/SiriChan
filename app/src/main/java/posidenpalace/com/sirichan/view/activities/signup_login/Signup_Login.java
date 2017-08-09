@@ -1,6 +1,8 @@
 package posidenpalace.com.sirichan.view.activities.signup_login;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -41,13 +43,16 @@ public class Signup_Login extends AppCompatActivity implements Signup_LoginContr
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private CallbackManager mCallbackManager;
-
+    SharedPreferences.Editor editor;
+    SharedPreferences sharedPref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getApplicationContext());
         FirebaseApp.initializeApp(this);
         setContentView(R.layout.activity_signup__login);
+        sharedPref = getPreferences(Context.MODE_PRIVATE);
+        editor = sharedPref.edit();
         mAuth = FirebaseAuth.getInstance();
         ButterKnife.bind(this);
         setupFirebaseLogin();
@@ -106,6 +111,7 @@ public class Signup_Login extends AppCompatActivity implements Signup_LoginContr
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     // User is signed in
+                    updateUI(user);
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
                 } else {
                     // User is signed out
@@ -173,7 +179,12 @@ public class Signup_Login extends AppCompatActivity implements Signup_LoginContr
     }
 
     private void updateUI(FirebaseUser currentUser) {
-
+        if(!currentUser.getDisplayName().equals(sharedPref.getString(getString(R.string.USER_EMAIL_KEY),"-1"))){
+            editor.putString(getString(R.string.USER_EMAIL_KEY),currentUser.getDisplayName());
+            editor.commit();
+        }
+        Intent intent = new Intent(Signup_Login.this,MainMenu.class);
+        startActivity(intent);
     }
 
     @Override
@@ -212,8 +223,8 @@ public class Signup_Login extends AppCompatActivity implements Signup_LoginContr
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
                                 if (task.isSuccessful()){
-                                    Intent intent = new Intent(Signup_Login.this, MainMenu.class);
-                                    startActivity(intent);
+                                    FirebaseUser user = mAuth.getCurrentUser();
+                                    updateUI(user);
                               }
                                 // If sign in fails, display a message to the user. If sign in succeeds
                                 // the auth state listener will be notified and logic to handle the
