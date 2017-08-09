@@ -16,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
@@ -207,6 +208,7 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
 
     public void logOut(View view) {
         FirebaseAuth.getInstance().signOut();
+        LoginManager.getInstance().logOut();
         Intent intent = new Intent(MainMenu.this, Signup_Login.class);
         startActivity(intent);
     }
