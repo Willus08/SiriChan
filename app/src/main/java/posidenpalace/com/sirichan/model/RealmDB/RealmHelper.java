@@ -25,7 +25,7 @@ public class RealmHelper
                 .deleteRealmIfMigrationNeeded()
                 .build();
         Realm.setDefaultConfiguration(config);
-        Realm realm = Realm.getDefaultInstance();
+        this.realm = Realm.getDefaultInstance();
     }
 
 

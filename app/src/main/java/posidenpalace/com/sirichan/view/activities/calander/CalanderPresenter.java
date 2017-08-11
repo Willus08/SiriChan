@@ -44,9 +44,10 @@ public class CalanderPresenter implements CalanderContract.Presenter{
     @Override
     public void SetCalendarDates(MaterialCalendarView calendar,RealmHelper helper) {
         ArrayList<UserEvent> events = helper.getEvents();
-        for(UserEvent event:events)
-        {
-            calendar.setDateSelected(event.getDate(),true);
+        if (events.size() > 0) {
+            for (UserEvent event : events) {
+                calendar.setDateSelected(event.getDate(), true);
+            }
         }
     }
 }
