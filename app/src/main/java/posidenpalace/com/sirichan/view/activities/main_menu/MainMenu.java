@@ -340,6 +340,17 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        d=new Date();
+        currentDateTimeString = sdf.format(d);
+        time.setText(currentDateTimeString);
+        todaysDate=datesdf.format(d);
+        date.setText(todaysDate);
+        updateWeather();
+    }
+
+    @Override
     protected void onStart() {
         super.onStart();
         filter=new IntentFilter(Intent.ACTION_TIME_TICK);
