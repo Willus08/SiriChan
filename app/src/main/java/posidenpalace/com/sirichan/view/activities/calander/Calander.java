@@ -1,8 +1,10 @@
 package posidenpalace.com.sirichan.view.activities.calander;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
@@ -71,19 +73,47 @@ public class Calander extends AppCompatActivity implements CalanderContract.View
     // Button CLicks
     public void onListEvets(View view)
     {
-        Intent intent = new Intent(Calander.this, SelectedDate.class);
-        DateFormat df = new SimpleDateFormat("dd/MM/YYYY");
-        intent.putExtra("DATESELECTED",df.format(_Date).toString());
-        startActivity(intent);
+        if (_Date != null) {
+            Intent intent = new Intent(Calander.this, SelectedDate.class);
+            DateFormat df = new SimpleDateFormat("dd/MM/YYYY");
+            intent.putExtra("DATESELECTED", df.format(_Date).toString());
+            startActivity(intent);
+        }else
+        {
+            this.showAlert();
+        }
+    }
+
+    private void showAlert()
+    {
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+        builder1.setMessage("Please Select A Date");
+        builder1.setCancelable(true);
+
+        builder1.setPositiveButton(
+                "Ok",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alert11 = builder1.create();
+        alert11.show();
     }
 
     //Button clicks
     public void onAddEvent(View view)
     {
-        Intent intent = new Intent(Calander.this, SetupEvent.class);
-        DateFormat df = new SimpleDateFormat("dd/MM/YYYY");
-        intent.putExtra("DATESELECTED",df.format(_Date).toString());
-        startActivity(intent);
+        if (_Date != null) {
+            Intent intent = new Intent(Calander.this, SetupEvent.class);
+            DateFormat df = new SimpleDateFormat("dd/MM/YYYY");
+            intent.putExtra("DATESELECTED", df.format(_Date).toString());
+            startActivity(intent);
+        }else
+        {
+           this.showAlert();
+        }
     }
 
     @Override
