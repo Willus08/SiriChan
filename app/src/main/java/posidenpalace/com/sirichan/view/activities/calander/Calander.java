@@ -75,7 +75,7 @@ public class Calander extends AppCompatActivity implements CalanderContract.View
     {
         if (_Date != null) {
             Intent intent = new Intent(Calander.this, SelectedDate.class);
-            DateFormat df = new SimpleDateFormat("dd/MM/YYYY");
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
             intent.putExtra("DATESELECTED", df.format(_Date).toString());
             startActivity(intent);
         }else
@@ -107,7 +107,7 @@ public class Calander extends AppCompatActivity implements CalanderContract.View
     {
         if (_Date != null) {
             Intent intent = new Intent(Calander.this, SetupEvent.class);
-            DateFormat df = new SimpleDateFormat("dd/MM/YYYY");
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
             intent.putExtra("DATESELECTED", df.format(_Date).toString());
             startActivity(intent);
         }else
