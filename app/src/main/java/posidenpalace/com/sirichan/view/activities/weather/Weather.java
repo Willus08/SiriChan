@@ -126,9 +126,9 @@ public class Weather extends AppCompatActivity implements WeatherContract.View {
     @Override
     protected void onStart() {
         super.onStart();
-        reciever=new WeatherReciever();
-        intentFilter=new IntentFilter(Intent.ACTION_TIME_TICK);
-        registerReceiver(reciever,intentFilter);
+        reciever = new WeatherReciever();
+        intentFilter = new IntentFilter(Intent.ACTION_TIME_TICK);
+        registerReceiver(reciever, intentFilter);
 
     }
 
@@ -161,5 +161,28 @@ public class Weather extends AppCompatActivity implements WeatherContract.View {
                 }
             });
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        fusedLocation = new FusedLocationProviderClient(this);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        fusedLocation.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
+            @Override
+            public void onSuccess(Location location) {
+                currentLocation = location;
+                presenter.getLocationsWeather(location.getLatitude(), location.getLongitude());
+            }
+        });
     }
 }
