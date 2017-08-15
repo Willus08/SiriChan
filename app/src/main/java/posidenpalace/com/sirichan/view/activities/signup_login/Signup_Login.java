@@ -180,6 +180,7 @@ public class Signup_Login extends AppCompatActivity implements Signup_LoginContr
 
              Intent intent = new Intent(Signup_Login.this, MainMenu.class);
              startActivity(intent);
+             finish();
 
      }
 
