@@ -81,8 +81,8 @@ public class Signup_Login extends AppCompatActivity implements Signup_LoginContr
     public void onStart() {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
+      //  FirebaseUser currentUser = mAuth.getCurrentUser();
+       // updateUI(currentUser);
     }
 
     @Override
@@ -156,14 +156,14 @@ public class Signup_Login extends AppCompatActivity implements Signup_LoginContr
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
+                           // FirebaseUser user = mAuth.getCurrentUser();
+                           // updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
                             Toast.makeText(Signup_Login.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
-                            updateUI(null);
+                            //updateUI(null);
                         }
 
                         // ...
@@ -222,8 +222,7 @@ public class Signup_Login extends AppCompatActivity implements Signup_LoginContr
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
                                 if (task.isSuccessful()){
-                                    FirebaseUser user = mAuth.getCurrentUser();
-                                    updateUI(user);
+
                               }
                                 // If sign in fails, display a message to the user. If sign in succeeds
                                 // the auth state listener will be notified and logic to handle the
