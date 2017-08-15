@@ -331,6 +331,7 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
         LoginManager.getInstance().logOut();
         Intent intent = new Intent(MainMenu.this, Signup_Login.class);
         startActivity(intent);
+        finish();
     }
 
     @Override
