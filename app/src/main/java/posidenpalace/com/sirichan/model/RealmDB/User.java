@@ -20,10 +20,8 @@ public class User extends RealmObject implements Serializable{
     @Required
     private String email;
 
-    @Required
     private String firstName;
 
-    @Required
     private String lastName;
 
     @Required
