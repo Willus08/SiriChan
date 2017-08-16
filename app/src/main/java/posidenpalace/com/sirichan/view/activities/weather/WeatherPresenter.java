@@ -3,6 +3,10 @@ package posidenpalace.com.sirichan.view.activities.weather;
 
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import posidenpalace.com.sirichan.model.weatherpojos.MultipleWeatherPojo;
 import posidenpalace.com.sirichan.model.weatherpojos.WeatherMultiplePojo;
 import posidenpalace.com.sirichan.view.activities.restcalls.model.weathermodel.WeatherDataPojo;
 import posidenpalace.com.sirichan.view.activities.restcalls.retrofithelpers.weatherhelper.WeatherRetroHelper;
@@ -11,7 +15,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class WeatherPresenter implements WeatherContract.Presenter{
+
     private static final String TAG = "WeatherPresenter";
+    private List<MultipleWeatherPojo> multipleWeather=new ArrayList<>();
+
     WeatherContract.View view;
     @Override
     public void addView(WeatherContract.View view) {
