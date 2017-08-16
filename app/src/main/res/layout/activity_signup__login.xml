@@ -16,24 +16,33 @@
         android:orientation="vertical"
         android:visibility="gone"
         android:gravity="center">
-
-        <EditText
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/email"
-            android:inputType="textEmailAddress"
-            android:id="@+id/etSLSignUpEmail"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            android:layout_height="wrap_content">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress"
+                    android:id="@+id/etSLSignUpEmail"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"/>
+        </android.support.design.widget.TextInputLayout>
 
-        <EditText
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_password"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/password"
-            android:inputType="textWebPassword"
-            android:id="@+id/etSLSignUpPassword"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            android:layout_height="wrap_content">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/password"
+                    android:inputType="textWebPassword"
+                    android:id="@+id/etSLSignUpPassword"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"/>
+        </android.support.design.widget.TextInputLayout>
 
         <Button
             android:layout_width="wrap_content"
@@ -59,24 +68,32 @@
         android:gravity="center"
         android:orientation="vertical"
         android:weightSum="1">
-
-        <EditText
-            android:id="@+id/etSLLoginEmail"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/supSLloginEmailcontainer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:hint="@string/email"
-            android:inputType="textEmailAddress" />
-
-        <EditText
-            android:id="@+id/etSLLoginPassword"
+            android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/etSLLoginEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/supSLloginPasswordcontainer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:hint="@string/password"
-            android:inputType="textWebPassword" />
+            android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/etSLLoginPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:hint="@string/password"
+                    android:inputType="textWebPassword" />
+        </android.support.design.widget.TextInputLayout>
 
         <Button
             android:layout_width="wrap_content"
