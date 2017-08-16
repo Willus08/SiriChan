@@ -2,7 +2,6 @@ package posidenpalace.com.sirichan.view.activities.list_of_events.listAdapterPac
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,7 +54,6 @@ public class TimeListAdapter extends RecyclerView.Adapter<TimeListAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public CardView cardView;
         public TextView tvTime;
         public TextView tvEvent;
         public UserEvent event;
@@ -65,7 +63,6 @@ public class TimeListAdapter extends RecyclerView.Adapter<TimeListAdapter.ViewHo
 
             this.tvEvent = (TextView)itemView.findViewById(R.id.tvEvent);
             this.tvTime = (TextView)itemView.findViewById(R.id.tvTime);
-            this.cardView = (CardView)itemView.findViewById(R.id.cardView);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
