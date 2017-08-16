@@ -20,7 +20,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="email"
+            android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:id="@+id/etSLSignUpEmail"
             android:layout_marginLeft="20dp"
@@ -29,7 +29,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="password"
+            android:hint="@string/password"
             android:inputType="textWebPassword"
             android:id="@+id/etSLSignUpPassword"
             android:layout_marginLeft="20dp"
@@ -39,14 +39,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Create Account"
+            android:text="@string/create_account"
             android:onClick="CreateAccount"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="go back"
+            android:text="@string/go_back"
             android:onClick="switchToLogIN"/>
 
     </LinearLayout>
@@ -56,56 +56,58 @@
         android:id="@+id/llSLLogInLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="vertical"
-        android:gravity="center">
+        android:weightSum="1">
 
         <EditText
             android:id="@+id/etSLLoginEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="email"
-            android:inputType="textEmailAddress"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            android:layout_marginRight="20dp"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress" />
 
         <EditText
             android:id="@+id/etSLLoginPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="password"
-            android:inputType="textWebPassword"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            android:layout_marginRight="20dp"
+            android:hint="@string/password"
+            android:inputType="textWebPassword" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:onClick="LogIn"
-            android:text="Log In" />
+            android:text="@string/log_in" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:onClick="StartSignUp"
-            android:text="Sign Up" />
+            android:text="@string/sign_up" />
 
         <!-- sign in with facebook here-->
         <com.facebook.login.widget.LoginButton
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="30dp"
+            android:id="@+id/flbtnSLfacebookLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:id="@+id/flbtnSLfacebookLogin"/>
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="30dp" />
 
         <TextView
-            android:layout_width="150sp"
+            android:layout_width="210dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="To get the full experince of this app it is recomended to login with Facebook" />
+            android:text="@string/facebook_suggestion"
+            android:layout_weight="0.09" />
     </LinearLayout>
 
 </FrameLayout>
