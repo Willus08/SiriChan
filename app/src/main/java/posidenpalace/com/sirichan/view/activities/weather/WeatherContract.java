@@ -14,5 +14,8 @@ public interface WeatherContract {
     interface Presenter extends BasePresenter<View>{
         void getLocationsWeather(double lat, double lon);
 
+
+        void getMultipleDays(double lat, double lon);
+
     }
 }

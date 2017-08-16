@@ -62,7 +62,8 @@ public class Weather extends AppCompatActivity implements WeatherContract.View {
             @Override
             public void onSuccess(Location location) {
                 currentLocation = location;
-                presenter.getLocationsWeather(location.getLatitude(), location.getLongitude());
+//                presenter.getLocationsWeather(location.getLatitude(), location.getLongitude());
+                presenter.getMultipleDays(location.getLatitude(),location.getLongitude());
             }
         });
 

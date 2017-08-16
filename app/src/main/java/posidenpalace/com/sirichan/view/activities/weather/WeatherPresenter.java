@@ -3,6 +3,7 @@ package posidenpalace.com.sirichan.view.activities.weather;
 
 import android.util.Log;
 
+import posidenpalace.com.sirichan.model.weatherpojos.WeatherMultiplePojo;
 import posidenpalace.com.sirichan.view.activities.restcalls.model.weathermodel.WeatherDataPojo;
 import posidenpalace.com.sirichan.view.activities.restcalls.retrofithelpers.weatherhelper.WeatherRetroHelper;
 import retrofit2.Call;
@@ -40,6 +41,26 @@ public class WeatherPresenter implements WeatherContract.Presenter{
             public void onFailure(Call<WeatherDataPojo> call, Throwable t) {
                 Log.d(TAG, "onFailure: "+t.toString());
 
+            }
+        });
+    }
+
+    @Override
+    public void getMultipleDays(double lat, double lon) {
+        retrofit2.Call<WeatherMultiplePojo> call=WeatherRetroHelper.getmMultiplDays(lat,lon);
+        call.enqueue(new Callback<WeatherMultiplePojo>() {
+            @Override
+            public void onResponse(Call<WeatherMultiplePojo> call, Response<WeatherMultiplePojo> response) {
+
+                for (int i = 0; i <response.body().getList().size() ; i++) {
+                    Log.d(TAG, "onResponseMultiple: "+response.body().getList().get(i).getDtTxt());
+                    Log.d(TAG, "onResponseMultiple: "+response.body().getList().get(i).getWeather().get(0).getDescription());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<WeatherMultiplePojo> call, Throwable t) {
+                Log.d(TAG, "onFailureMultiple: "+t.toString());
             }
         });
     }

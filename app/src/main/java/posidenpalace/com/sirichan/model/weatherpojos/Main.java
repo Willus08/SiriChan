@@ -31,7 +31,7 @@ public class Main implements Serializable
     private Integer humidity;
     @SerializedName("temp_kf")
     @Expose
-    private Integer tempKf;
+    private double tempKf;
     private final static long serialVersionUID = 3116099457427473924L;
 
     public Double getTemp() {
@@ -90,7 +90,7 @@ public class Main implements Serializable
         this.humidity = humidity;
     }
 
-    public Integer getTempKf() {
+    public double getTempKf() {
         return tempKf;
     }
 
