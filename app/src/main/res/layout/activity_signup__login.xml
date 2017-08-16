@@ -14,21 +14,26 @@
         android:layout_height="match_parent"
         android:id="@+id/llSLSignUpLayout"
         android:orientation="vertical"
-        android:visibility="gone">
+        android:visibility="gone"
+        android:gravity="center">
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="email"
             android:inputType="textEmailAddress"
-            android:id="@+id/etSLSignUpEmail"/>
+            android:id="@+id/etSLSignUpEmail"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="password"
             android:inputType="textWebPassword"
-            android:id="@+id/etSLSignUpPassword"/>
+            android:id="@+id/etSLSignUpPassword"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -37,6 +42,13 @@
             android:text="Create Account"
             android:onClick="CreateAccount"/>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="go back"
+            android:onClick="switchToLogIN"/>
+
     </LinearLayout>
 
     <!--This is the login layout -->
@@ -44,32 +56,26 @@
         android:id="@+id/llSLLogInLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-        <!-- sign in with facebook here-->
-        <com.facebook.login.widget.LoginButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:id="@+id/flbtnSLfacebookLogin"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="or Log in With Email" />
+        android:orientation="vertical"
+        android:gravity="center">
 
         <EditText
             android:id="@+id/etSLLoginEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="email"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
 
         <EditText
             android:id="@+id/etSLLoginPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="password"
-            android:inputType="textWebPassword" />
+            android:inputType="textWebPassword"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -85,6 +91,15 @@
             android:onClick="StartSignUp"
             android:text="Sign Up" />
 
+        <!-- sign in with facebook here-->
+        <com.facebook.login.widget.LoginButton
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/flbtnSLfacebookLogin"/>
+
         <TextView
             android:layout_width="150sp"
             android:layout_height="wrap_content"
@@ -92,11 +107,5 @@
             android:gravity="center"
             android:text="To get the full experince of this app it is recomended to login with Facebook" />
     </LinearLayout>
-    <!-- TODO delete this button before release-->
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="shortcut"
-        android:layout_gravity="bottom"
-        android:text="for testing"/>
+
 </FrameLayout>

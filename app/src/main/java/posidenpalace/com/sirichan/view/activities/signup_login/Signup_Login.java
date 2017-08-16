@@ -81,8 +81,7 @@ public class Signup_Login extends AppCompatActivity implements Signup_LoginContr
     public void onStart() {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
-      //  FirebaseUser currentUser = mAuth.getCurrentUser();
-       // updateUI(currentUser);
+
     }
 
     @Override
@@ -156,14 +155,13 @@ public class Signup_Login extends AppCompatActivity implements Signup_LoginContr
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
-                           // FirebaseUser user = mAuth.getCurrentUser();
-                           // updateUI(user);
+
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
                             Toast.makeText(Signup_Login.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
-                            //updateUI(null);
+
                         }
 
                         // ...
@@ -292,10 +290,9 @@ public class Signup_Login extends AppCompatActivity implements Signup_LoginContr
         }
     }
 
-    //TODO delete this before release
-    public void shortcut(View view) {
-        Intent shortcut = new Intent(Signup_Login.this, MainMenu.class);
-        startActivity(shortcut);
+
+    public void switchToLogIN(View view) {
+        changeToLogIn();
     }
 }
 
