@@ -1,7 +1,6 @@
 package posidenpalace.com.sirichan.view.activities.signup_login;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -42,8 +41,6 @@ public class Signup_Login extends AppCompatActivity implements Signup_LoginContr
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private CallbackManager mCallbackManager;
-    SharedPreferences.Editor editor;
-    SharedPreferences sharedPref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,8 +78,7 @@ public class Signup_Login extends AppCompatActivity implements Signup_LoginContr
     public void onStart() {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
-      //  FirebaseUser currentUser = mAuth.getCurrentUser();
-       // updateUI(currentUser);
+
     }
 
     @Override
@@ -156,14 +152,14 @@ public class Signup_Login extends AppCompatActivity implements Signup_LoginContr
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
-                           // FirebaseUser user = mAuth.getCurrentUser();
-                           // updateUI(user);
+                            Toast.makeText(Signup_Login.this, "Authentication Successful", Toast.LENGTH_SHORT).show();
+
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
                             Toast.makeText(Signup_Login.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
-                            //updateUI(null);
+
                         }
 
                         // ...
@@ -222,14 +218,14 @@ public class Signup_Login extends AppCompatActivity implements Signup_LoginContr
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
                                 if (task.isSuccessful()){
-
+                                    Toast.makeText(Signup_Login.this, "Login Successful", Toast.LENGTH_SHORT).show();
                               }
                                 // If sign in fails, display a message to the user. If sign in succeeds
                                 // the auth state listener will be notified and logic to handle the
                                 // signed in user can be handled in the listener.
                                 if (!task.isSuccessful()) {
                                     Log.w(TAG, "signInWithEmail:failed", task.getException());
-                                    Toast.makeText(Signup_Login.this, "failed", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Signup_Login.this, "Login Failed", Toast.LENGTH_SHORT).show();
                                 }
 
                                 // ...
@@ -268,13 +264,14 @@ public class Signup_Login extends AppCompatActivity implements Signup_LoginContr
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
                                     if (task.isSuccessful()) {
+                                        Toast.makeText(Signup_Login.this, "Account Created", Toast.LENGTH_SHORT).show();
                                         changeToLogIn();
                                     }
                                     // If sign in fails, display a message to the user. If sign in succeeds
                                     // the auth state listener will be notified and logic to handle the
                                     // signed in user can be handled in the listener.
                                     if (!task.isSuccessful()) {
-                                        Toast.makeText(Signup_Login.this, "failed",
+                                        Toast.makeText(Signup_Login.this, "Account Creation failed",
                                                 Toast.LENGTH_SHORT).show();
                                     }
 
@@ -292,10 +289,9 @@ public class Signup_Login extends AppCompatActivity implements Signup_LoginContr
         }
     }
 
-    //TODO delete this before release
-    public void shortcut(View view) {
-        Intent shortcut = new Intent(Signup_Login.this, MainMenu.class);
-        startActivity(shortcut);
+
+    public void switchToLogIN(View view) {
+        changeToLogIn();
     }
 }
 
