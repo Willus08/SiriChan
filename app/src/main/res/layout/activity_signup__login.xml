@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cardview_dark_background"
+
     tools:context="posidenpalace.com.sirichan.view.activities.signup_login.Signup_Login">
 
 
@@ -16,6 +17,7 @@
         android:id="@+id/llSLSignUpLayout"
         android:orientation="vertical"
         android:visibility="gone"
+        android:layout_margin="10dp"
         android:gravity="center">
         <android.support.design.widget.TextInputLayout
             android:id="@+id/input_layout_name"
@@ -77,6 +79,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
+        android:layout_margin="10dp"
         android:orientation="vertical"
         android:weightSum="1">
         <android.support.design.widget.TextInputLayout
