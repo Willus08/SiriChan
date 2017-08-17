@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp">
+
+    <LinearLayout
+        android:layout_width="45dp"
+        android:layout_height="250dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/weather_image_description"
+            android:id="@+id/ivWR12amImage"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR12amType"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR12amTemp"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR12amTime"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR12amDate"
+            android:textColor="@color/colorPrimaryText"/>
+
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="45dp"
+        android:layout_height="250dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/weather_image_description"
+            android:id="@+id/ivWR3amImage"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR3amType"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR3amTemp"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR3amTime"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR3amDate"
+            android:textColor="@color/colorPrimaryText"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="45dp"
+        android:layout_height="250dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/weather_image_description"
+            android:id="@+id/ivWR6amImage"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR6amType"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR6amTemp"
+            android:textColor="@color/colorPrimaryText"/>
+
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR6amTime"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR6amDate"
+            android:textColor="@color/colorPrimaryText"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="45dp"
+        android:layout_height="250dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/weather_image_description"
+            android:id="@+id/ivWR9amImage"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR9amType"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR9amTemp"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR9amTime"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR9amDate"
+            android:textColor="@color/colorPrimaryText"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="45dp"
+        android:layout_height="250dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/weather_image_description"
+            android:id="@+id/ivWR12pmImage"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR12pmType"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR12pmTemp"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR12pmTime"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR12pmDate"
+            android:textColor="@color/colorPrimaryText"/>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="45dp"
+        android:layout_height="250dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/weather_image_description"
+            android:id="@+id/ivWR3pmImage"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR3pmType"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR3pmTemp"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR3pmTime"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR3pmDate"
+            android:textColor="@color/colorPrimaryText"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="45dp"
+        android:layout_height="250dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/weather_image_description"
+            android:id="@+id/ivWR6pmImage"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR6pmType"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR6pmTemp"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR6pmTime"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR6pmDate"
+            android:textColor="@color/colorPrimaryText"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="45dp"
+        android:layout_height="250dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/ivWR9pmImage"
+            android:contentDescription="@string/weather_image_description"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR9pmType"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR9pmTemp"
+            android:textColor="@color/colorPrimaryText"/>
+
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR9pmTime"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR9pmDate"
+            android:textColor="@color/colorPrimaryText"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -4,14 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cardview_dark_background"
+    android:background="@color/colorPrimaryDark"
     android:orientation="vertical"
+    android:gravity="center"
     tools:context="posidenpalace.com.sirichan.view.activities.weather.Weather">
 
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:id="@+id/rvWeatherRecyclerView"
+        android:background="@color/colorPrimaryLight"
+        android:layout_margin="10dp">
+
+    </android.support.v7.widget.RecyclerView>
     <ImageView
         android:id="@+id/ivWeatherPicture"
         android:layout_width="100sp"
         android:layout_height="100sp"
+        android:contentDescription="@string/weather_image_description"
         android:layout_gravity="center_horizontal"/>
 
     <TextView
@@ -19,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorPrimaryText"
         android:textSize="20sp" />
 
     <TextView
@@ -27,7 +37,7 @@
         android:id="@+id/tvWeatherCity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorPrimaryText"
         android:textSize="20sp" />
 
     <TextView
@@ -35,7 +45,7 @@
         android:id="@+id/tvWeatherTemperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorPrimaryText"
         android:textSize="20sp" />
 
     <TextView
@@ -43,7 +53,7 @@
         android:id="@+id/tvWeatherHumidity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorPrimaryText"
         android:textSize="20sp" />
 
     <TextView
@@ -51,7 +61,7 @@
         android:id="@+id/tvWeatherWind"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorPrimaryText"
         android:textSize="20sp" />
 
 

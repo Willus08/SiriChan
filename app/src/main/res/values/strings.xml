@@ -17,5 +17,6 @@
     <string name="email_hint">email</string>
     <string name="facebook_suggestion">To get the full experince of this app it is recomended to login with Facebook</string>
     <string name="signup_message">Don\'t have an account? Make one here!</string>
+    <string name="weather_image_description">Weather Image</string>
 
 </resources>
