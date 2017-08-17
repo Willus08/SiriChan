@@ -24,6 +24,9 @@ public class RecyclerViewHelper extends RecyclerView.Adapter<RecyclerViewHelper.
 
 
     private List<RecyclerWeatherPojoHelper> multipleWeatherPojos=new ArrayList<>();
+    private double kelvinTemp;
+    private String temp;
+
 
     public RecyclerViewHelper(List<RecyclerWeatherPojoHelper> multipleWeatherPojos) {
         this.multipleWeatherPojos = multipleWeatherPojos;
@@ -38,15 +41,30 @@ public class RecyclerViewHelper extends RecyclerView.Adapter<RecyclerViewHelper.
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         RecyclerWeatherPojoHelper recyclerWeatherPojoHelper=multipleWeatherPojos.get(position);
-        holder.dateAM12.setText(recyclerWeatherPojoHelper.getAm12().getWeatherdate());
-        holder.dateAM3.setText(recyclerWeatherPojoHelper.getAm3().getWeatherdate());
-        holder.dateAM6.setText(recyclerWeatherPojoHelper.getAm6().getWeatherdate());
-        holder.dateAM9.setText(recyclerWeatherPojoHelper.getAm9().getWeatherdate());
-        holder.datePM12.setText(recyclerWeatherPojoHelper.getPm12().getWeatherdate());
-        holder.datePM3.setText(recyclerWeatherPojoHelper.getPm3().getWeatherdate());
-        holder.datePM6.setText(recyclerWeatherPojoHelper.getPm6().getWeatherdate());
-        holder.datePM9.setText(recyclerWeatherPojoHelper.getPm9().getWeatherdate());
 
+        //date
+//        holder.dateAM12.setText(recyclerWeatherPojoHelper.getAm12().getWeatherdate().substring(0,10));
+//        holder.dateAM3.setText(recyclerWeatherPojoHelper.getAm3().getWeatherdate().substring(0,10));
+//        holder.dateAM6.setText(recyclerWeatherPojoHelper.getAm6().getWeatherdate().substring(0,10));
+//        holder.dateAM9.setText(recyclerWeatherPojoHelper.getAm9().getWeatherdate().substring(0,10));
+//        holder.datePM12.setText(recyclerWeatherPojoHelper.getPm12().getWeatherdate().substring(0,10));
+//        holder.datePM3.setText(recyclerWeatherPojoHelper.getPm3().getWeatherdate().substring(0,10));
+//        holder.datePM6.setText(recyclerWeatherPojoHelper.getPm6().getWeatherdate().substring(0,10));
+//        holder.datePM9.setText(recyclerWeatherPojoHelper.getPm9().getWeatherdate().substring(0,10));
+
+
+        //time
+        holder.timeAM12.setText(recyclerWeatherPojoHelper.getAm12().getWeatherdate().substring(11,16));
+        holder.timeAM3.setText(recyclerWeatherPojoHelper.getAm3().getWeatherdate().substring(11,16));
+        holder.timeAM6.setText(recyclerWeatherPojoHelper.getAm6().getWeatherdate().substring(11,16));
+        holder.timeAM9.setText(recyclerWeatherPojoHelper.getAm9().getWeatherdate().substring(11,16));
+        holder.timePM12.setText(recyclerWeatherPojoHelper.getPm12().getWeatherdate().substring(11,16));
+        holder.timePM3.setText(recyclerWeatherPojoHelper.getPm3().getWeatherdate().substring(11,16));
+        holder.timePM6.setText(recyclerWeatherPojoHelper.getPm6().getWeatherdate().substring(11,16));
+        holder.timePM9.setText(recyclerWeatherPojoHelper.getPm9().getWeatherdate().substring(11,16));
+
+
+        //picture
         Glide.with(holder.itemView.getContext())
                 .load("http://openweathermap.org/img/w/" + recyclerWeatherPojoHelper.getAm12().getWeatherPicture() + ".png")
                 .into(holder.weatherImageAM12);
@@ -80,6 +98,51 @@ public class RecyclerViewHelper extends RecyclerView.Adapter<RecyclerViewHelper.
                 .load("http://openweathermap.org/img/w/" + recyclerWeatherPojoHelper.getPm9().getWeatherPicture() + ".png")
                 .into(holder.weatherImagePM9);
 
+
+        //temperature
+        kelvinTemp = recyclerWeatherPojoHelper.getAm12().getTemp();
+        kelvinTemp = (kelvinTemp * 9 / 5) - 459.67;
+        temp = String.format("%.2f", kelvinTemp);
+        holder.tempAM12.setText(temp);
+
+        kelvinTemp = recyclerWeatherPojoHelper.getAm3().getTemp();
+        kelvinTemp = (kelvinTemp * 9 / 5) - 459.67;
+        temp = String.format("%.2f", kelvinTemp);
+        holder.tempAM3.setText(temp);
+
+        kelvinTemp = recyclerWeatherPojoHelper.getAm6().getTemp();
+        kelvinTemp = (kelvinTemp * 9 / 5) - 459.67;
+        temp = String.format("%.2f", kelvinTemp);
+        holder.tempAM6.setText(temp);
+
+
+        kelvinTemp = recyclerWeatherPojoHelper.getAm9().getTemp();
+        kelvinTemp = (kelvinTemp * 9 / 5) - 459.67;
+        temp = String.format("%.2f", kelvinTemp);
+        holder.tempAM9.setText(temp);
+
+
+        kelvinTemp = recyclerWeatherPojoHelper.getPm12().getTemp();
+        kelvinTemp = (kelvinTemp * 9 / 5) - 459.67;
+        temp = String.format("%.2f", kelvinTemp);
+        holder.tempPM12.setText(temp);
+
+        kelvinTemp = recyclerWeatherPojoHelper.getPm3().getTemp();
+        kelvinTemp = (kelvinTemp * 9 / 5) - 459.67;
+        temp = String.format("%.2f", kelvinTemp);
+        holder.tempPM3.setText(temp);
+
+
+        kelvinTemp = recyclerWeatherPojoHelper.getPm6().getTemp();
+        kelvinTemp = (kelvinTemp * 9 / 5) - 459.67;
+        temp = String.format("%.2f", kelvinTemp);
+        holder.tempPM6.setText(temp);
+
+
+        kelvinTemp = recyclerWeatherPojoHelper.getPm9().getTemp();
+        kelvinTemp = (kelvinTemp * 9 / 5) - 459.67;
+        temp = String.format("%.2f", kelvinTemp);
+        holder.tempPM9.setText(temp);
 
     }
 
