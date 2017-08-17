@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,6 +46,39 @@ public class RecyclerViewHelper extends RecyclerView.Adapter<RecyclerViewHelper.
         holder.datePM3.setText(recyclerWeatherPojoHelper.getPm3().getWeatherdate());
         holder.datePM6.setText(recyclerWeatherPojoHelper.getPm6().getWeatherdate());
         holder.datePM9.setText(recyclerWeatherPojoHelper.getPm9().getWeatherdate());
+
+        Glide.with(holder.itemView.getContext())
+                .load("http://openweathermap.org/img/w/" + recyclerWeatherPojoHelper.getAm12().getWeatherPicture() + ".png")
+                .into(holder.weatherImageAM12);
+
+        Glide.with(holder.itemView.getContext())
+                .load("http://openweathermap.org/img/w/" + recyclerWeatherPojoHelper.getAm3().getWeatherPicture() + ".png")
+                .into(holder.weatherImageAM3);
+
+        Glide.with(holder.itemView.getContext())
+                .load("http://openweathermap.org/img/w/" + recyclerWeatherPojoHelper.getAm6().getWeatherPicture() + ".png")
+                .into(holder.weatherImageAM6);
+
+        Glide.with(holder.itemView.getContext())
+                .load("http://openweathermap.org/img/w/" + recyclerWeatherPojoHelper.getAm9().getWeatherPicture() + ".png")
+                .into(holder.weatherImageAM9);
+
+        Glide.with(holder.itemView.getContext())
+                .load("http://openweathermap.org/img/w/" + recyclerWeatherPojoHelper.getPm12().getWeatherPicture() + ".png")
+                .into(holder.weatherImagePM12);
+
+        Glide.with(holder.itemView.getContext())
+                .load("http://openweathermap.org/img/w/" + recyclerWeatherPojoHelper.getPm3().getWeatherPicture() + ".png")
+                .into(holder.weatherImagePM3);
+
+
+        Glide.with(holder.itemView.getContext())
+                .load("http://openweathermap.org/img/w/" + recyclerWeatherPojoHelper.getPm6().getWeatherPicture() + ".png")
+                .into(holder.weatherImagePM6);
+
+        Glide.with(holder.itemView.getContext())
+                .load("http://openweathermap.org/img/w/" + recyclerWeatherPojoHelper.getPm9().getWeatherPicture() + ".png")
+                .into(holder.weatherImagePM9);
 
 
     }
