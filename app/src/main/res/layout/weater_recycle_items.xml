@@ -28,6 +28,18 @@
             android:id="@+id/tvWR12amTemp"
             android:textColor="@color/colorPrimaryText"/>
 
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR12amTime"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR12amDate"
+            android:textColor="@color/colorPrimaryText"/>
+
     </LinearLayout>
     
     <LinearLayout
@@ -51,6 +63,18 @@
             android:layout_width="40sp"
             android:layout_height="wrap_content"
             android:id="@+id/tvWR3amTemp"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR3amTime"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR3amDate"
             android:textColor="@color/colorPrimaryText"/>
 
     </LinearLayout>
@@ -77,6 +101,19 @@
             android:id="@+id/tvWR6amTemp"
             android:textColor="@color/colorPrimaryText"/>
 
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR6amTime"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR6amDate"
+            android:textColor="@color/colorPrimaryText"/>
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="45dp"
@@ -99,6 +136,18 @@
             android:layout_width="40sp"
             android:layout_height="wrap_content"
             android:id="@+id/tvWR9amTemp"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR9amTime"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR9amDate"
             android:textColor="@color/colorPrimaryText"/>
 
     </LinearLayout>
@@ -125,6 +174,19 @@
             android:id="@+id/tvWR12pmTemp"
             android:textColor="@color/colorPrimaryText"/>
 
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR12pmTime"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR12pmDate"
+            android:textColor="@color/colorPrimaryText"/>
+
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="45dp"
@@ -147,6 +209,18 @@
             android:layout_width="40sp"
             android:layout_height="wrap_content"
             android:id="@+id/tvWR3pmTemp"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR3pmTime"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR3pmDate"
             android:textColor="@color/colorPrimaryText"/>
 
     </LinearLayout>
@@ -173,6 +247,18 @@
             android:id="@+id/tvWR6pmTemp"
             android:textColor="@color/colorPrimaryText"/>
 
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR6pmTime"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR6pmDate"
+            android:textColor="@color/colorPrimaryText"/>
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="45dp"
@@ -195,6 +281,19 @@
             android:layout_width="40sp"
             android:layout_height="wrap_content"
             android:id="@+id/tvWR9pmTemp"
+            android:textColor="@color/colorPrimaryText"/>
+
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR9pmTime"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvWR9pmDate"
             android:textColor="@color/colorPrimaryText"/>
 
     </LinearLayout>
