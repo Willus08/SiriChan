@@ -4,10 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cardview_dark_background"
+    android:background="@color/colorPrimaryDark"
     android:orientation="vertical"
     tools:context="posidenpalace.com.sirichan.view.activities.weather.Weather">
 
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:id="@+id/rvWeatherRecyclerView">
+
+    </android.support.v7.widget.RecyclerView>
     <ImageView
         android:id="@+id/ivWeatherPicture"
         android:layout_width="100sp"
