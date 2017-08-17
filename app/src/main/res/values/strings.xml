@@ -18,5 +18,6 @@
     <string name="facebook_suggestion">To get the full experince of this app it is recomended to login with Facebook</string>
     <string name="signup_message">Don\'t have an account? Make one here!</string>
     <string name="weather_image_description">Weather Image</string>
+    <string name="text_to_speach_description">Text To Speach Activation</string>
 
 </resources>
