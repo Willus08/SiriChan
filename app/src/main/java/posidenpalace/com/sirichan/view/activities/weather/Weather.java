@@ -10,6 +10,9 @@ import android.location.Location;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -20,11 +23,16 @@ import com.bumptech.glide.Glide;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.tasks.OnSuccessListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import posidenpalace.com.sirichan.R;
+import posidenpalace.com.sirichan.model.weatherpojos.MultipleWeatherPojo;
+import posidenpalace.com.sirichan.model.weatherpojos.RecyclerWeatherPojoHelper;
 import posidenpalace.com.sirichan.view.activities.restcalls.model.weathermodel.WeatherDataPojo;
 import posidenpalace.com.sirichan.view.injection.weather.DaggerWeatherComponent;
 import retrofit2.Response;
@@ -35,6 +43,11 @@ public class Weather extends AppCompatActivity implements WeatherContract.View {
     private WeatherReciever reciever;
     private IntentFilter intentFilter;
     private FusedLocationProviderClient fusedLocation;
+    private RecyclerView.LayoutManager layoutmanager;
+    private RecyclerViewHelper recyclerAdapter;
+    private DefaultItemAnimator defaultItemAnimator=new DefaultItemAnimator();
+
+
     @Inject
     WeatherPresenter presenter;
 
@@ -87,6 +100,10 @@ public class Weather extends AppCompatActivity implements WeatherContract.View {
     @BindView(R.id.tvWeatherCity)
     TextView city;
 
+
+    @BindView(R.id.rvWeatherRecyclerView)
+    RecyclerView recycler;
+
     public void setupDagger() {
         DaggerWeatherComponent.create().inject(this);
     }
@@ -110,6 +127,29 @@ public class Weather extends AppCompatActivity implements WeatherContract.View {
         weatherType.setText(response.body().getWeather().get(0).getDescription());
         humidity.setText("Humidity: " + response.body().getMain().getHumidity() + "%");
         city.setText("City: " + response.body().getName());
+    }
+
+    @Override
+    public void multipleWeatherResponse(List<MultipleWeatherPojo> multipleWeatherPojoList) {
+
+        List<RecyclerWeatherPojoHelper> recyclerpojo= new ArrayList<>();
+        for (int i = 0; i <48 ; i+=8) {
+            recyclerpojo.add(new RecyclerWeatherPojoHelper(multipleWeatherPojoList.get(i),
+                    multipleWeatherPojoList.get(i+1),
+                    multipleWeatherPojoList.get(i+2),
+                    multipleWeatherPojoList.get(i+3),
+                    multipleWeatherPojoList.get(i+4),
+                    multipleWeatherPojoList.get(i+5),
+                    multipleWeatherPojoList.get(i+6),
+                    multipleWeatherPojoList.get(i+7)));
+        }
+
+        layoutmanager=new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
+        recyclerAdapter= new RecyclerViewHelper(recyclerpojo);
+        recycler.setLayoutManager(layoutmanager);
+        recycler.setItemAnimator(defaultItemAnimator);
+        recycler.setAdapter(recyclerAdapter);
+
     }
 
 

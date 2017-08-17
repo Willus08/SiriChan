@@ -59,10 +59,31 @@ public class WeatherPresenter implements WeatherContract.Presenter{
             @Override
             public void onResponse(Call<WeatherMultiplePojo> call, Response<WeatherMultiplePojo> response) {
 
+
+                //dummy data
+                for (int i = 0; i <7 ; i++) {
+                    multipleWeather.add(new MultipleWeatherPojo(response.body().getList().get(0).getDtTxt(),
+                            response.body().getList().get(0).getWeather().get(0).getIcon(),
+                            response.body().getList().get(0).getWeather().get(0).getDescription(),
+                            response.body().getList().get(0).getMain().getTemp()));
+
+                }
+
                 for (int i = 0; i <response.body().getList().size() ; i++) {
+                    multipleWeather.add(new MultipleWeatherPojo(response.body().getList().get(i).getDtTxt(),
+                            response.body().getList().get(i).getWeather().get(0).getIcon(),
+                            response.body().getList().get(i).getWeather().get(0).getDescription(),
+                            response.body().getList().get(i).getMain().getTemp()));
                     Log.d(TAG, "onResponseMultiple: "+response.body().getList().get(i).getDtTxt());
                     Log.d(TAG, "onResponseMultiple: "+response.body().getList().get(i).getWeather().get(0).getDescription());
                 }
+
+                multipleWeather.add(new MultipleWeatherPojo(response.body().getList().get(response.body().getList().size()-1).getDtTxt(),
+                        response.body().getList().get(response.body().getList().size()-1).getWeather().get(0).getIcon(),
+                        response.body().getList().get(response.body().getList().size()-1).getWeather().get(0).getDescription(),
+                        response.body().getList().get(response.body().getList().size()-1).getMain().getTemp()));
+
+                view.multipleWeatherResponse(multipleWeather);
             }
 
             @Override
