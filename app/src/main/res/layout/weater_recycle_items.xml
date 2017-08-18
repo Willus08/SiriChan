@@ -15,11 +15,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
          android:orientation="horizontal"
-        android:layout_margin="5dp"
+        android:layout_margin="1dp"
         android:gravity="center_horizontal">
 
             <LinearLayout
-                android:layout_width="37dp"
+                android:layout_width="38dp"
                 android:layout_height="250dp"
                 android:orientation="vertical"
                 android:background="@drawable/weather_divider">
@@ -57,7 +57,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="37dp"
+                android:layout_width="38dp"
                 android:layout_height="250dp"
                 android:orientation="vertical"
                 android:background="@drawable/weather_divider">
@@ -94,7 +94,7 @@
 
             </LinearLayout>
             <LinearLayout
-                android:layout_width="37dp"
+                android:layout_width="38dp"
                 android:layout_height="250dp"
                 android:orientation="vertical"
                 android:background="@drawable/weather_divider">
@@ -132,7 +132,7 @@
 
             </LinearLayout>
             <LinearLayout
-                android:layout_width="37dp"
+                android:layout_width="38dp"
                 android:layout_height="250dp"
                 android:orientation="vertical"
                 android:background="@drawable/weather_divider">
@@ -169,7 +169,7 @@
 
             </LinearLayout>
             <LinearLayout
-                android:layout_width="37dp"
+                android:layout_width="38dp"
                 android:layout_height="250dp"
                 android:orientation="vertical"
                 android:background="@drawable/weather_divider">
@@ -207,7 +207,7 @@
 
             </LinearLayout>
             <LinearLayout
-                android:layout_width="37dp"
+                android:layout_width="38dp"
                 android:layout_height="250dp"
                 android:orientation="vertical"
                 android:background="@drawable/weather_divider">
@@ -244,7 +244,7 @@
 
             </LinearLayout>
             <LinearLayout
-                android:layout_width="37dp"
+                android:layout_width="38dp"
                 android:layout_height="250dp"
                 android:orientation="vertical"
                 
@@ -282,7 +282,7 @@
 
             </LinearLayout>
             <LinearLayout
-                android:layout_width="37dp"
+                android:layout_width="38dp"
                 android:layout_height="250dp"
                 android:orientation="vertical"
                 android:background="@drawable/weather_divider">
