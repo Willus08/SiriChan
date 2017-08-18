@@ -13,12 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import posidenpalace.com.sirichan.R;
-import posidenpalace.com.sirichan.model.weatherpojos.MultipleWeatherPojo;
 import posidenpalace.com.sirichan.model.weatherpojos.RecyclerWeatherPojoHelper;
 
-/**
- * Created by Android on 8/17/2017.
- */
 
 public class RecyclerViewHelper extends RecyclerView.Adapter<RecyclerViewHelper.ViewHolder> {
 
