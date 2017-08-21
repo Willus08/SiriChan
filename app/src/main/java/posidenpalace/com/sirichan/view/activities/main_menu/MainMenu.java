@@ -407,7 +407,7 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
         //need a image for mist and fog
         if(response.body().getWeather().get(0).getDescription().contains("mist")|| response.body().getWeather().get(0).getDescription().contains("fog"))
         {
-            Glide.with(getApplicationContext()).load(R.drawable.weather_sunny).asBitmap().into(new SimpleTarget<Bitmap>() {
+            Glide.with(getApplicationContext()).load(R.drawable.weather_fog).asBitmap().into(new SimpleTarget<Bitmap>() {
                 @Override
                 public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
                     Drawable drawable= new BitmapDrawable(resource);
