@@ -12,7 +12,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.PagerSnapHelper;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SnapHelper;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -149,6 +151,8 @@ public class Weather extends AppCompatActivity implements WeatherContract.View {
         recycler.setLayoutManager(layoutmanager);
         recycler.setItemAnimator(defaultItemAnimator);
         recycler.setAdapter(recyclerAdapter);
+        SnapHelper helper = new PagerSnapHelper();
+        helper.attachToRecyclerView(recycler);
 
     }
 

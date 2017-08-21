@@ -38,6 +38,8 @@ public class RecyclerViewHelper extends RecyclerView.Adapter<RecyclerViewHelper.
     public void onBindViewHolder(ViewHolder holder, int position) {
         RecyclerWeatherPojoHelper recyclerWeatherPojoHelper=multipleWeatherPojos.get(position);
 
+        holder.theDate.setText("Date: "+recyclerWeatherPojoHelper.getAm12().getWeatherdate().substring(0,10));
+
         //date
 //        holder.dateAM12.setText(recyclerWeatherPojoHelper.getAm12().getWeatherdate().substring(0,10));
 //        holder.dateAM3.setText(recyclerWeatherPojoHelper.getAm3().getWeatherdate().substring(0,10));
@@ -149,6 +151,9 @@ public class RecyclerViewHelper extends RecyclerView.Adapter<RecyclerViewHelper.
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
+
+        TextView theDate;
+
         ImageView weatherImageAM12;
         ImageView weatherImageAM3;
         ImageView weatherImageAM6;
@@ -197,6 +202,9 @@ public class RecyclerViewHelper extends RecyclerView.Adapter<RecyclerViewHelper.
 
         public ViewHolder(View itemView) {
             super(itemView);
+
+            theDate=itemView.findViewById(R.id.tvWRDate);
+
             weatherImageAM12=itemView.findViewById(R.id.ivWR12amImage);
             weatherImageAM3=itemView.findViewById(R.id.ivWR3amImage);
             weatherImageAM6=itemView.findViewById(R.id.ivWR6amImage);
