@@ -10,6 +10,7 @@
 
     <!--stuff to be in seen in the activity here -->
     <FrameLayout
+        android:id="@+id/flMMFramaLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"

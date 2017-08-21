@@ -6,6 +6,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
@@ -20,12 +23,15 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.SimpleTarget;
 import com.facebook.login.LoginManager;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -114,6 +120,10 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
 
     @BindView(R.id.tvMMDate)
     TextView date;
+
+
+    @BindView(R.id.flMMFramaLayout)
+    FrameLayout frameLayout;
 
     // checks for the permissions needed for the app
     private void checkPermissons() {
@@ -338,6 +348,61 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
     public void weatherResponse(Response<WeatherDataPojo> response) {
         Glide.with(getApplicationContext()).load("http://openweathermap.org/img/w/"+response.body().getWeather().get(0).getIcon()+".png").into(weatherPicture);
         weatherType.setText(response.body().getWeather().get(0).getDescription());
+
+        if(response.body().getWeather().get(0).getDescription().contains("cloud"))
+        {
+            Glide.with(getApplicationContext()).load(R.drawable.weather_cloudy).asBitmap().into(new SimpleTarget<Bitmap>() {
+                @Override
+                public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+                    Drawable drawable= new BitmapDrawable(resource);
+                    frameLayout.setBackground(drawable);
+                }
+            });
+        }
+
+        if(response.body().getWeather().get(0).getDescription().contains("sun"))
+        {
+            Glide.with(getApplicationContext()).load(R.drawable.weather_sunny).asBitmap().into(new SimpleTarget<Bitmap>() {
+                @Override
+                public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+                    Drawable drawable= new BitmapDrawable(resource);
+                    frameLayout.setBackground(drawable);
+                }
+            });
+        }
+
+        if(response.body().getWeather().get(0).getDescription().contains("rain"))
+        {
+            Glide.with(getApplicationContext()).load(R.drawable.weather_rain).asBitmap().into(new SimpleTarget<Bitmap>() {
+                @Override
+                public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+                    Drawable drawable= new BitmapDrawable(resource);
+                    frameLayout.setBackground(drawable);
+                }
+            });
+        }
+
+        if(response.body().getWeather().get(0).getDescription().contains("snow"))
+        {
+            Glide.with(getApplicationContext()).load(R.drawable.weather_snow).asBitmap().into(new SimpleTarget<Bitmap>() {
+                @Override
+                public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+                    Drawable drawable= new BitmapDrawable(resource);
+                    frameLayout.setBackground(drawable);
+                }
+            });
+        }
+
+        if(response.body().getWeather().get(0).getDescription().contains("storm"))
+        {
+            Glide.with(getApplicationContext()).load(R.drawable.weather_storm).asBitmap().into(new SimpleTarget<Bitmap>() {
+                @Override
+                public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+                    Drawable drawable= new BitmapDrawable(resource);
+                    frameLayout.setBackground(drawable);
+                }
+            });
+        }
     }
 
     @Override
