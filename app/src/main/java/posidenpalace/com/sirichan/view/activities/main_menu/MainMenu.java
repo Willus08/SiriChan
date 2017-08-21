@@ -371,7 +371,7 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
             });
         }
 
-        if(response.body().getWeather().get(0).getDescription().contains("rain"))
+        if(response.body().getWeather().get(0).getDescription().contains("rain")|| response.body().getWeather().get(0).getDescription().contains("drizzle"))
         {
             Glide.with(getApplicationContext()).load(R.drawable.weather_rain).asBitmap().into(new SimpleTarget<Bitmap>() {
                 @Override
@@ -382,7 +382,7 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
             });
         }
 
-        if(response.body().getWeather().get(0).getDescription().contains("snow"))
+        if(response.body().getWeather().get(0).getDescription().contains("snow")||response.body().getWeather().get(0).getDescription().contains("sleet"))
         {
             Glide.with(getApplicationContext()).load(R.drawable.weather_snow).asBitmap().into(new SimpleTarget<Bitmap>() {
                 @Override
@@ -396,6 +396,18 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
         if(response.body().getWeather().get(0).getDescription().contains("storm"))
         {
             Glide.with(getApplicationContext()).load(R.drawable.weather_storm).asBitmap().into(new SimpleTarget<Bitmap>() {
+                @Override
+                public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+                    Drawable drawable= new BitmapDrawable(resource);
+                    frameLayout.setBackground(drawable);
+                }
+            });
+        }
+
+        //need a image for mist and fog
+        if(response.body().getWeather().get(0).getDescription().contains("mist")|| response.body().getWeather().get(0).getDescription().contains("fog"))
+        {
+            Glide.with(getApplicationContext()).load(R.drawable.weather_sunny).asBitmap().into(new SimpleTarget<Bitmap>() {
                 @Override
                 public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
                     Drawable drawable= new BitmapDrawable(resource);
