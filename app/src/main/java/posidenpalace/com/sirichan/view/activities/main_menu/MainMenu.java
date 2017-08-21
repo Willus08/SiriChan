@@ -360,7 +360,7 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
             });
         }
 
-        if(response.body().getWeather().get(0).getDescription().contains("sun"))
+        if(response.body().getWeather().get(0).getDescription().contains("sun")||response.body().getWeather().get(0).getDescription().contains("clear"))
         {
             Glide.with(getApplicationContext()).load(R.drawable.weather_sunny).asBitmap().into(new SimpleTarget<Bitmap>() {
                 @Override
