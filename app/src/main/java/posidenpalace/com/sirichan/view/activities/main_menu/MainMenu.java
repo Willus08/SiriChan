@@ -336,7 +336,7 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
 
     @Override
     public void weatherResponse(Response<WeatherDataPojo> response) {
-        Glide.with(this).load("http://openweathermap.org/img/w/"+response.body().getWeather().get(0).getIcon()+".png").into(weatherPicture);
+        Glide.with(getApplicationContext()).load("http://openweathermap.org/img/w/"+response.body().getWeather().get(0).getIcon()+".png").into(weatherPicture);
         weatherType.setText(response.body().getWeather().get(0).getDescription());
     }
 

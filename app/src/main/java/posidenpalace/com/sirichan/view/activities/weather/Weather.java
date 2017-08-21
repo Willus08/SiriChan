@@ -119,7 +119,7 @@ public class Weather extends AppCompatActivity implements WeatherContract.View {
     @Override
     public void weatherResponse(Response<WeatherDataPojo> response) {
 
-        Glide.with(this).load("http://openweathermap.org/img/w/" + response.body().getWeather().get(0).getIcon() + ".png").into(weatherPicture);
+        Glide.with(getApplicationContext()).load("http://openweathermap.org/img/w/" + response.body().getWeather().get(0).getIcon() + ".png").into(weatherPicture);
         double windSpeed = response.body().getWind().getSpeed() * 2.2369;
         wind.setText("Wind Speed: " + String.format("%.2f", windSpeed) + " Miles/Hour");
         double kelvinTemp = response.body().getMain().getTemp();
