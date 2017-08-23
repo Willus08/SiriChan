@@ -16,7 +16,7 @@
         app:mcv_showOtherDates="all"
         app:mcv_selectionColor="@color/colorAccent"
         />
-
+<!-- commented out for now till sure for deletion
 
     <Button
         android:layout_width="match_parent"
@@ -38,5 +38,5 @@
         />
 
 
-
+-->
 </LinearLayout>
