@@ -5,13 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/colorPrimaryDark"
     tools:context="posidenpalace.com.sirichan.view.activities.locationservices.LocationServicesActivity">
 
     <fragment
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
-        android:id="@+id/search1"/>
+        android:id="@+id/search1"
+        />
 
     <fragment
         android:layout_width="match_parent"
