@@ -83,6 +83,7 @@ public class WeatherPresenter implements WeatherContract.Presenter{
                         response.body().getList().get(response.body().getList().size()-1).getWeather().get(0).getDescription(),
                         response.body().getList().get(response.body().getList().size()-1).getMain().getTemp()));
 
+                Log.d(TAG, "onResponse:Size "+ multipleWeather.size());
                 view.multipleWeatherResponse(multipleWeather);
             }
 
