@@ -22,14 +22,14 @@ public class ListOfEvents extends AppCompatActivity implements ListOfEventsContr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_of_events);
         setupDagger();
-
+        presenter.addView(this);
         String dateString = savedInstanceState.getString("DATESTRING");
         RealmHelper helper = new RealmHelper(this);
         this.recyclerView = (RecyclerView)findViewById(R.id.my_recycler_view);
         this.recyclerView.setLayoutManager(new LinearLayoutManager(this));
         this.adapter = new TimeListAdapter(this,helper.gettime(dateString));
         this.recyclerView.setAdapter(this.adapter);
-        presenter.addView(this);
+
     }
 
     public void setupDagger(){
