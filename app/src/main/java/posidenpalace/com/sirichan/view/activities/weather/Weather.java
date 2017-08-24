@@ -135,7 +135,7 @@ public class Weather extends AppCompatActivity implements WeatherContract.View {
     public void multipleWeatherResponse(List<MultipleWeatherPojo> multipleWeatherPojoList) {
 
         List<RecyclerWeatherPojoHelper> recyclerpojo= new ArrayList<>();
-        for (int i = 0; i <48 ; i+=8) {
+        for (int i = 0; i <multipleWeatherPojoList.size() ; i+=8) {
             recyclerpojo.add(new RecyclerWeatherPojoHelper(multipleWeatherPojoList.get(i),
                     multipleWeatherPojoList.get(i+1),
                     multipleWeatherPojoList.get(i+2),

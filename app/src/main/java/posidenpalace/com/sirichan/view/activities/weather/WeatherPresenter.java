@@ -61,12 +61,101 @@ public class WeatherPresenter implements WeatherContract.Presenter{
 
 
                 //dummy data
-                for (int i = 0; i <7 ; i++) {
-                    multipleWeather.add(new MultipleWeatherPojo(response.body().getList().get(0).getDtTxt(),
-                            response.body().getList().get(0).getWeather().get(0).getIcon(),
-                            response.body().getList().get(0).getWeather().get(0).getDescription(),
-                            response.body().getList().get(0).getMain().getTemp()));
+                if(response.body().getList().get(0).getDtTxt().substring(11,16).contentEquals("21:00"))
+                {
+                    //need 7
+                    Log.d(TAG, "onResponse: totallyFilling 7");
+                    for (int i = 0; i <7 ; i++) {
+                        multipleWeather.add(new MultipleWeatherPojo(response.body().getList().get(0).getDtTxt(),
+                                response.body().getList().get(0).getWeather().get(0).getIcon(),
+                                response.body().getList().get(0).getWeather().get(0).getDescription(),
+                                response.body().getList().get(0).getMain().getTemp()));
 
+                    }
+                }
+
+                if(response.body().getList().get(0).getDtTxt().substring(11,16).contentEquals("18:00"))
+                {
+                    //need 6
+                    Log.d(TAG, "onResponse: totallyFilling 6");
+                    for (int i = 0; i <6 ; i++) {
+                        multipleWeather.add(new MultipleWeatherPojo(response.body().getList().get(0).getDtTxt(),
+                                response.body().getList().get(0).getWeather().get(0).getIcon(),
+                                response.body().getList().get(0).getWeather().get(0).getDescription(),
+                                response.body().getList().get(0).getMain().getTemp()));
+
+                    }
+                }
+
+                if(response.body().getList().get(0).getDtTxt().substring(11,16).contentEquals("15:00"))
+                {
+                    //need 5
+                    for (int i = 0; i <5 ; i++) {
+                        multipleWeather.add(new MultipleWeatherPojo(response.body().getList().get(0).getDtTxt(),
+                                response.body().getList().get(0).getWeather().get(0).getIcon(),
+                                response.body().getList().get(0).getWeather().get(0).getDescription(),
+                                response.body().getList().get(0).getMain().getTemp()));
+
+                    }
+                    Log.d(TAG, "onResponse: totallyFilling 5");
+                }
+
+                if(response.body().getList().get(0).getDtTxt().substring(11,16).contentEquals("12:00"))
+                {
+                    //need 4
+                    for (int i = 0; i <4 ; i++) {
+                        multipleWeather.add(new MultipleWeatherPojo(response.body().getList().get(0).getDtTxt(),
+                                response.body().getList().get(0).getWeather().get(0).getIcon(),
+                                response.body().getList().get(0).getWeather().get(0).getDescription(),
+                                response.body().getList().get(0).getMain().getTemp()));
+
+                    }
+                    Log.d(TAG, "onResponse: totallyFilling 4");
+                }
+
+                if(response.body().getList().get(0).getDtTxt().substring(11,16).contentEquals("09:00"))
+                {
+                    //need 3
+                    for (int i = 0; i <3 ; i++) {
+                        multipleWeather.add(new MultipleWeatherPojo(response.body().getList().get(0).getDtTxt(),
+                                response.body().getList().get(0).getWeather().get(0).getIcon(),
+                                response.body().getList().get(0).getWeather().get(0).getDescription(),
+                                response.body().getList().get(0).getMain().getTemp()));
+
+                    }
+                    Log.d(TAG, "onResponse: totallyFilling 3");
+                }
+
+                if(response.body().getList().get(0).getDtTxt().substring(11,16).contentEquals("06:00"))
+                {
+                    //need 2
+                    for (int i = 0; i <2 ; i++) {
+                        multipleWeather.add(new MultipleWeatherPojo(response.body().getList().get(0).getDtTxt(),
+                                response.body().getList().get(0).getWeather().get(0).getIcon(),
+                                response.body().getList().get(0).getWeather().get(0).getDescription(),
+                                response.body().getList().get(0).getMain().getTemp()));
+
+                    }
+                    Log.d(TAG, "onResponse: totallyFilling 2");
+                }
+
+                if(response.body().getList().get(0).getDtTxt().substring(11,16).contentEquals("03:00"))
+                {
+                    //need 1
+                    for (int i = 0; i <1 ; i++) {
+                        multipleWeather.add(new MultipleWeatherPojo(response.body().getList().get(0).getDtTxt(),
+                                response.body().getList().get(0).getWeather().get(0).getIcon(),
+                                response.body().getList().get(0).getWeather().get(0).getDescription(),
+                                response.body().getList().get(0).getMain().getTemp()));
+
+                    }
+                    Log.d(TAG, "onResponse: totallyFilling 1");
+                }
+
+                if(response.body().getList().get(0).getDtTxt().substring(11,16).contentEquals("00:00"))
+                {
+                    //need 0
+                    Log.d(TAG, "onResponse: totallyFilling 0");
                 }
 
                 for (int i = 0; i <response.body().getList().size() ; i++) {
@@ -78,11 +167,95 @@ public class WeatherPresenter implements WeatherContract.Presenter{
                     Log.d(TAG, "onResponseMultiple: "+response.body().getList().get(i).getWeather().get(0).getDescription());
                 }
 
-                multipleWeather.add(new MultipleWeatherPojo(response.body().getList().get(response.body().getList().size()-1).getDtTxt(),
-                        response.body().getList().get(response.body().getList().size()-1).getWeather().get(0).getIcon(),
-                        response.body().getList().get(response.body().getList().size()-1).getWeather().get(0).getDescription(),
-                        response.body().getList().get(response.body().getList().size()-1).getMain().getTemp()));
+                if(response.body().getList().get(response.body().getList().size()-1).getDtTxt().substring(11,16).contentEquals("00:00"))
+                {
+                    //need 7
+                    for (int i = 0; i <7 ; i++) {
+                        multipleWeather.add(new MultipleWeatherPojo(response.body().getList().get(i).getDtTxt(),
+                                response.body().getList().get(i).getWeather().get(0).getIcon(),
+                                response.body().getList().get(i).getWeather().get(0).getDescription(),
+                                response.body().getList().get(i).getMain().getTemp()));
 
+                    }
+                    Log.d(TAG, "onResponse: totallyFilling 7");
+                }
+
+                if(response.body().getList().get(response.body().getList().size()-1).getDtTxt().substring(11,16).contentEquals("03:00"))
+                {
+                    //need 6
+                    for (int i = 0; i <6 ; i++) {
+                        multipleWeather.add(new MultipleWeatherPojo(response.body().getList().get(i).getDtTxt(),
+                                response.body().getList().get(i).getWeather().get(0).getIcon(),
+                                response.body().getList().get(i).getWeather().get(0).getDescription(),
+                                response.body().getList().get(i).getMain().getTemp()));
+
+                    }
+                    Log.d(TAG, "onResponse: totallyFilling 6");
+                }
+
+                if(response.body().getList().get(response.body().getList().size()-1).getDtTxt().substring(11,16).contentEquals("06:00"))
+                {
+                    //need 5
+                    for (int i = 0; i <5 ; i++) {
+                        multipleWeather.add(new MultipleWeatherPojo(response.body().getList().get(i).getDtTxt(),
+                                response.body().getList().get(i).getWeather().get(0).getIcon(),
+                                response.body().getList().get(i).getWeather().get(0).getDescription(),
+                                response.body().getList().get(i).getMain().getTemp()));
+
+                    }
+                    Log.d(TAG, "onResponse: totallyFilling 5");
+                }
+
+                if(response.body().getList().get(response.body().getList().size()-1).getDtTxt().substring(11,16).contentEquals("09:00"))
+                {
+                    //need 4
+                    for (int i = 0; i <4 ; i++) {
+                        multipleWeather.add(new MultipleWeatherPojo(response.body().getList().get(i).getDtTxt(),
+                                response.body().getList().get(i).getWeather().get(0).getIcon(),
+                                response.body().getList().get(i).getWeather().get(0).getDescription(),
+                                response.body().getList().get(i).getMain().getTemp()));
+
+                    }
+                    Log.d(TAG, "onResponse: totallyFilling 4");
+                }
+
+                if(response.body().getList().get(response.body().getList().size()-1).getDtTxt().substring(11,16).contentEquals("12:00"))
+                {
+                    //need 3
+                    for (int i = 0; i <3 ; i++) {
+                        multipleWeather.add(new MultipleWeatherPojo(response.body().getList().get(i).getDtTxt(),
+                                response.body().getList().get(i).getWeather().get(0).getIcon(),
+                                response.body().getList().get(i).getWeather().get(0).getDescription(),
+                                response.body().getList().get(i).getMain().getTemp()));
+
+                    }
+                    Log.d(TAG, "onResponse: totallyFilling 6");
+                }
+
+                if(response.body().getList().get(response.body().getList().size()-1).getDtTxt().substring(11,16).contentEquals("15:00"))
+                {
+                    //need 2
+                    for (int i = 0; i <2 ; i++) {
+                        multipleWeather.add(new MultipleWeatherPojo(response.body().getList().get(i).getDtTxt(),
+                                response.body().getList().get(i).getWeather().get(0).getIcon(),
+                                response.body().getList().get(i).getWeather().get(0).getDescription(),
+                                response.body().getList().get(i).getMain().getTemp()));
+
+                    }
+                    Log.d(TAG, "onResponse: totallyFilling 6");
+                }
+                if(response.body().getList().get(response.body().getList().size()-1).getDtTxt().substring(11,16).contentEquals("18:00"))
+                {
+                    //need 1
+                    for (int i = 0; i <1 ; i++) {
+                        multipleWeather.add(new MultipleWeatherPojo(response.body().getList().get(i).getDtTxt(),
+                                response.body().getList().get(i).getWeather().get(0).getIcon(),
+                                response.body().getList().get(i).getWeather().get(0).getDescription(),
+                                response.body().getList().get(i).getMain().getTemp()));
+
+                    }
+                    Log.d(TAG, "onResponse: totallyFilling 1");
+                }
                 Log.d(TAG, "onResponse:Size "+ multipleWeather.size());
                 view.multipleWeatherResponse(multipleWeather);
             }
