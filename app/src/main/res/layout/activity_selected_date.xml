@@ -1,41 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/colorPrimaryDark"
-    tools:context="posidenpalace.com.sirichan.view.activities.selected_date.SelectedDate">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textSize="20sp"
-        android:textColor="@color/colorPrimaryText"
-        android:id="@+id/tvSDDate"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:visibility="gone"
-        android:id="@+id/tvSDnoEvents"
-        android:text="@string/no_events_message"
-        android:textSize="30sp"
-        android:textColor="@color/colorPrimaryText"/>
-    <android.support.v7.widget.RecyclerView
+    android:background="@color/colorPrimaryDark">
+  <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
+        android:orientation="vertical"
         android:layout_height="match_parent"
-        android:id="@+id/rvSDActivitiesList"
-        android:background="@color/colorPrimaryLight"
-        android:layout_margin="10dp">
+      android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:textColor="@color/colorPrimaryText"
+            android:id="@+id/tvSDDate"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:visibility="gone"
+            android:id="@+id/tvSDnoEvents"
+            android:text="@string/no_events_message"
+            android:textSize="30sp"
+            android:textColor="@color/colorPrimaryText"/>
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rvSDActivitiesList"
+            android:background="@color/colorPrimaryLight"
+            android:layout_margin="10dp">
 
 
 
-    </android.support.v7.widget.RecyclerView>
+        </android.support.v7.widget.RecyclerView>
 
+  </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
@@ -43,6 +47,7 @@
         android:onClick="addEvent"
         android:background="@color/colorAccent"
         android:src="@drawable/plus_circle_outline"
-        android:layout_gravity="bottom"/>
+        android:layout_gravity="bottom|end"
 
-</LinearLayout>
+        />
+</android.support.design.widget.CoordinatorLayout>
