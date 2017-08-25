@@ -24,5 +24,6 @@
     <string name="weather_temp">Temp</string>
     <string name="weather_time">Time</string>
     <string name="chat_message_hint">Message</string>
+    <string name="chat_room_name">Chat Room Name</string>
 
 </resources>

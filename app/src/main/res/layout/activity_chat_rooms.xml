@@ -1,39 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/colorPrimaryLight"
     tools:context="posidenpalace.com.sirichan.view.activities.chat.ChatRooms">
 
-    <LinearLayout
-        android:weightSum="6"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:id="@+id/etChatName"
-            android:layout_weight="4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/btnCreateChat"
-            android:layout_weight="2"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="New Chat"
-            android:onClick="createChat"/>
-
-    </LinearLayout>
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
 
     <ListView
         android:id="@+id/chatListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="470dp">
 
     </ListView>
+   </LinearLayout>
+    <LinearLayout
+        android:weightSum="7"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/colorPrimary"
+        android:gravity="center">
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/etChatName"
+            android:layout_margin="2dp"
+            android:layout_weight="5"
+            android:hint="@string/chat_room_name"
+            android:textColor="@color/colorPrimaryText"
+            android:inputType="textWebEditText|textAutoComplete|textAutoCorrect"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btnCreateChat"
+            android:onClick="createChat"
+            android:layout_margin="2dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:layout_width="20dp"
+            android:src="@drawable/go_to"/>
+
+
+
+    </LinearLayout>
+
+</FrameLayout>
