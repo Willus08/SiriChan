@@ -48,6 +48,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import posidenpalace.com.sirichan.R;
 import posidenpalace.com.sirichan.view.activities.calander.Calander;
+import posidenpalace.com.sirichan.view.activities.chat.ChatRooms;
 import posidenpalace.com.sirichan.view.activities.internet.Internet;
 import posidenpalace.com.sirichan.view.activities.locationservices.LocationServicesActivity;
 import posidenpalace.com.sirichan.view.activities.restcalls.model.weathermodel.WeatherDataPojo;
@@ -250,7 +251,12 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
                     drawerLayout.closeDrawer(Gravity.START);
                     startActivity(intent);
                     break;
-
+                case 4:
+                    Intent chatIntent = new Intent(this, ChatRooms.class);
+                    msg = "Chat Rooms";
+                    drawerLayout.closeDrawer(Gravity.START);
+                    startActivity(chatIntent);
+                    break;
             }
 
         Toast output = Toast.makeText(this,"Going to " + msg,Toast.LENGTH_SHORT);

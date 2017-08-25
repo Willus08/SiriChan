@@ -32,6 +32,8 @@
         <activity android:name=".view.activities.calander.Calander" />
         <activity android:name=".view.activities.main_menu.MainMenu" />
         <activity android:name=".view.activities.locationservices.LocationServicesActivity" />
+        <activity android:name=".view.activities.chat.ChatRooms" />
+        <activity android:name=".view.activities.chat.FirebasePage" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
