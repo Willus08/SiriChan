@@ -60,7 +60,7 @@
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:layout_gravity="start"
-            android:background="@drawable/cancel_button_alt"
+            android:background="@drawable/cancel"
             android:onClick="switchToLogIN"
             android:layout_margin="10dp"/>
 
@@ -68,7 +68,7 @@
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:layout_gravity="end"
-            android:background="@drawable/confirm_button_alt"
+            android:background="@drawable/confirm"
             android:onClick="CreateAccount"
             android:layout_margin="10dp"/>
 
@@ -122,7 +122,7 @@
             android:layout_height="75dp"
             android:layout_gravity="center"
             android:onClick="LogIn"
-            android:background="@drawable/confirm_button_alt" />
+            android:background="@drawable/confirm" />
 
 
 

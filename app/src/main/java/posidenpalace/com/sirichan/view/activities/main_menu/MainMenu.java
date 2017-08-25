@@ -447,7 +447,7 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
     }
 
     public void goToWeather(View view) {
-        Intent weatherImageClicked = new Intent(this,Weather.class);
+        Intent weatherImageClicked = new Intent(getApplicationContext(),Weather.class);
         startActivity(weatherImageClicked);
 
     }
