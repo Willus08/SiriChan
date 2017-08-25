@@ -22,7 +22,7 @@
                 android:layout_width="38dp"
                 android:layout_height="250dp"
                 android:orientation="vertical"
-                android:background="@color/colorPrimaryLight">
+                android:background="@color/colorPrimary">
 
                 <ImageView
                     android:layout_width="35dp"
@@ -60,7 +60,7 @@
                 android:layout_width="38dp"
                 android:layout_height="250dp"
                 android:orientation="vertical"
-                android:background="@color/colorPrimaryLight">
+                android:background="@color/colorPrimary">
 
                 <ImageView
                     android:layout_width="35dp"
@@ -97,7 +97,7 @@
                 android:layout_width="38dp"
                 android:layout_height="250dp"
                 android:orientation="vertical"
-                android:background="@color/colorPrimaryLight">
+                android:background="@color/colorPrimary">
 
                 <ImageView
                     android:layout_width="35dp"
@@ -135,7 +135,7 @@
                 android:layout_width="38dp"
                 android:layout_height="250dp"
                 android:orientation="vertical"
-                android:background="@color/colorPrimaryLight">
+                android:background="@color/colorPrimary">
 
                 <ImageView
                     android:layout_width="35dp"
@@ -172,7 +172,7 @@
                 android:layout_width="38dp"
                 android:layout_height="250dp"
                 android:orientation="vertical"
-                android:background="@color/colorPrimaryLight">
+                android:background="@color/colorPrimary">
 
                 <ImageView
                     android:layout_width="35dp"
@@ -210,7 +210,7 @@
                 android:layout_width="38dp"
                 android:layout_height="250dp"
                 android:orientation="vertical"
-                android:background="@color/colorPrimaryLight">
+                android:background="@color/colorPrimary">
 
                 <ImageView
                     android:layout_width="35dp"
@@ -248,7 +248,7 @@
                 android:layout_height="250dp"
                 android:orientation="vertical"
                 
-                android:background="@color/colorPrimaryLight">
+                android:background="@color/colorPrimary">
 
                 <ImageView
                     android:layout_width="35dp"
@@ -285,7 +285,7 @@
                 android:layout_width="38dp"
                 android:layout_height="250dp"
                 android:orientation="vertical"
-                android:background="@color/colorPrimaryLight">
+                android:background="@color/colorPrimary">
 
                 <ImageView
                     android:layout_width="35dp"

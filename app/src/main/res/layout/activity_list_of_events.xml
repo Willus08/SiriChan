@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/colorPrimaryLight"
     tools:context="posidenpalace.com.sirichan.view.activities.list_of_events.ListOfEvents">
 
     <android.support.v7.widget.RecyclerView
