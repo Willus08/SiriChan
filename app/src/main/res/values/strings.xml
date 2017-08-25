@@ -23,5 +23,6 @@
     <string name="no_events_message">There are curently no events for this day!</string>
     <string name="weather_temp">Temp</string>
     <string name="weather_time">Time</string>
+    <string name="chat_message_hint">Message</string>
 
 </resources>
