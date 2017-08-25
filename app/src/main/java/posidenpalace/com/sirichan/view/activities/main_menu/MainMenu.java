@@ -263,6 +263,7 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
 
         myTTS.speak("Where do you want to go?", TextToSpeech.QUEUE_FLUSH, null);
 
+
         Thread thread= new Thread() {
 
             @Override
@@ -303,7 +304,7 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
                 {
                     ArrayList<String> voiceIn= data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                     Toast.makeText(this,voiceIn.get(0),Toast.LENGTH_LONG).show();
-                    String theVoice=voiceIn.get(0).toString();
+                    String theVoice=voiceIn.get(0);
                     Log.d(TAG, "onActivityResult: "+theVoice);
                     if (theVoice.contentEquals("weather"))
                     {
@@ -347,9 +348,10 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
     @Override
     public void weatherResponse(Response<WeatherDataPojo> response) {
         Glide.with(getApplicationContext()).load("http://openweathermap.org/img/w/"+response.body().getWeather().get(0).getIcon()+".png").into(weatherPicture);
-        weatherType.setText(response.body().getWeather().get(0).getDescription());
+        String weatherTypeText = response.body().getWeather().get(0).getDescription();
 
-        if(response.body().getWeather().get(0).getDescription().contains("cloud"))
+        weatherType.setText(weatherTypeText);
+        if(weatherTypeText.contains("cloud"))
         {
             Glide.with(getApplicationContext()).load(R.drawable.weather_cloudy).asBitmap().into(new SimpleTarget<Bitmap>() {
                 @Override
@@ -360,7 +362,7 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
             });
         }
 
-        if(response.body().getWeather().get(0).getDescription().contains("sun")||response.body().getWeather().get(0).getDescription().contains("clear"))
+        if(weatherTypeText.contains("sun")||weatherTypeText.contains("clear"))
         {
             Glide.with(getApplicationContext()).load(R.drawable.weather_sunny).asBitmap().into(new SimpleTarget<Bitmap>() {
                 @Override
@@ -371,7 +373,7 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
             });
         }
 
-        if(response.body().getWeather().get(0).getDescription().contains("rain")|| response.body().getWeather().get(0).getDescription().contains("drizzle"))
+        if(weatherTypeText.contains("rain")|| weatherTypeText.contains("drizzle"))
         {
             Glide.with(getApplicationContext()).load(R.drawable.weather_rain).asBitmap().into(new SimpleTarget<Bitmap>() {
                 @Override
@@ -382,7 +384,7 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
             });
         }
 
-        if(response.body().getWeather().get(0).getDescription().contains("snow")||response.body().getWeather().get(0).getDescription().contains("sleet"))
+        if(weatherTypeText.contains("snow")||weatherTypeText.contains("sleet"))
         {
             Glide.with(getApplicationContext()).load(R.drawable.weather_snow).asBitmap().into(new SimpleTarget<Bitmap>() {
                 @Override
@@ -393,7 +395,7 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
             });
         }
 
-        if(response.body().getWeather().get(0).getDescription().contains("storm"))
+        if(weatherTypeText.contains("storm"))
         {
             Glide.with(getApplicationContext()).load(R.drawable.weather_storm).asBitmap().into(new SimpleTarget<Bitmap>() {
                 @Override
@@ -405,7 +407,7 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
         }
 
         //need a image for mist and fog
-        if(response.body().getWeather().get(0).getDescription().contains("mist")|| response.body().getWeather().get(0).getDescription().contains("fog"))
+        if(weatherTypeText.contains("mist")|| weatherTypeText.contains("fog"))
         {
             Glide.with(getApplicationContext()).load(R.drawable.weather_fog).asBitmap().into(new SimpleTarget<Bitmap>() {
                 @Override
