@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:id="@+id/tvWIDate"
+        android:text="Date: Test"
+        android:textSize="20sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="250dp"
+            android:id="@+id/llWIweather3"
+            android:background="@drawable/weather_background"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/ivWIweatherImage3"
+                android:contentDescription="@string/weather_image_description"/>
+
+            <TextView
+                android:layout_width="40sp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvWIweathertype3"
+                android:textColor="@color/colorPrimaryText"/>
+
+            <TextView
+                android:layout_width="40sp"
+                android:layout_height="wrap_content"
+                android:text="@string/weather_time"
+                android:gravity="center"
+                android:textColor="@color/colorPrimaryText"/>
+
+            <TextView
+                android:layout_width="40sp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvWItime3"
+                android:textColor="@color/colorPrimaryText"/>
+
+            <TextView
+                android:layout_width="40sp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/weather_temp"
+                android:textColor="@color/colorPrimaryText"/>
+
+            <TextView
+                android:layout_width="40sp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvWItemo3"
+                android:textColor="@color/colorPrimaryText"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="250dp"
+            android:id="@+id/llWIweather6"
+            android:background="@drawable/weather_background"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/ivWIweatherImage6"
+                android:contentDescription="@string/weather_image_description"/>
+
+            <TextView
+                android:layout_width="40sp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvWIweathertype6"
+                android:textColor="@color/colorPrimaryText"/>
+
+            <TextView
+                android:layout_width="40sp"
+                android:layout_height="wrap_content"
+                android:text="@string/weather_time"
+                android:gravity="center"
+                android:textColor="@color/colorPrimaryText"/>
+
+            <TextView
+                android:layout_width="40sp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvWItime6"
+                android:textColor="@color/colorPrimaryText"/>
+
+            <TextView
+                android:layout_width="40sp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/weather_temp"
+                android:textColor="@color/colorPrimaryText"/>
+
+            <TextView
+                android:layout_width="40sp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvWItemo6"
+                android:textColor="@color/colorPrimaryText"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="250dp"
+            android:id="@+id/llWIweather9"
+            android:background="@drawable/weather_background"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/ivWIweatherImage9"
+                android:contentDescription="@string/weather_image_description"/>
+
+            <TextView
+                android:layout_width="40sp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvWIweathertype9"
+                android:textColor="@color/colorPrimaryText"/>
+
+            <TextView
+                android:layout_width="40sp"
+                android:layout_height="wrap_content"
+                android:text="@string/weather_time"
+                android:gravity="center"
+                android:textColor="@color/colorPrimaryText"/>
+
+            <TextView
+                android:layout_width="40sp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvWItime9"
+                android:textColor="@color/colorPrimaryText"/>
+
+            <TextView
+                android:layout_width="40sp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/weather_temp"
+                android:textColor="@color/colorPrimaryText"/>
+
+            <TextView
+                android:layout_width="40sp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvWItemo9"
+                android:textColor="@color/colorPrimaryText"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="250dp"
+            android:id="@+id/llWIweather12"
+            android:background="@drawable/weather_background"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/ivWIweatherImage12"
+                android:contentDescription="@string/weather_image_description"/>
+
+            <TextView
+                android:layout_width="40sp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvWIweathertype12"
+                android:textColor="@color/colorPrimaryText"/>
+
+            <TextView
+                android:layout_width="40sp"
+                android:layout_height="wrap_content"
+                android:text="@string/weather_time"
+                android:gravity="center"
+                android:textColor="@color/colorPrimaryText"/>
+
+            <TextView
+                android:layout_width="40sp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvWItime12"
+                android:textColor="@color/colorPrimaryText"/>
+
+            <TextView
+                android:layout_width="40sp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/weather_temp"
+                android:textColor="@color/colorPrimaryText"/>
+
+            <TextView
+                android:layout_width="40sp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvWItemo12"
+                android:textColor="@color/colorPrimaryText"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

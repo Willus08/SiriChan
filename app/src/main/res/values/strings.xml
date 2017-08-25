@@ -20,5 +20,7 @@
     <string name="weather_image_description">Weather Image</string>
     <string name="text_to_speach_description">Text To Speach Activation</string>
     <string name="no_events_message">There are curently no events for this day!</string>
+    <string name="weather_temp">Temp</string>
+    <string name="weather_time">Time</string>
 
 </resources>
