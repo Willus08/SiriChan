@@ -59,7 +59,8 @@
                 android:background="@drawable/back_for_weather"
                 android:contentDescription="@string/weather_image_description"
                 android:layout_height="75dp"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:onClick="goToWeather"/>
 
                 <TextView
                     android:id="@+id/tvMMWeatherType"

@@ -444,6 +444,12 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
         unregisterReceiver(reciever);
     }
 
+    public void goToWeather(View view) {
+        Intent weatherImageClicked = new Intent(this,Weather.class);
+        startActivity(weatherImageClicked);
+
+    }
+
     public class Reciever extends BroadcastReceiver
     {
         @Override
