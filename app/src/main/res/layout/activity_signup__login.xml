@@ -151,8 +151,7 @@
             android:onClick="StartSignUp"
             android:text="@string/signup_message"
             android:textSize="20sp"
-            android:textColor="@color/colorAccent"
-            />
+            android:textColor="@drawable/text_clicked"/>
     </LinearLayout>
 
 
