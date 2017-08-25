@@ -105,7 +105,7 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setShowHideAnimationEnabled(true);
 
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.hamburger_icon_scaled);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.hamburger);
         getSupportActionBar().setHomeButtonEnabled(true);
     }
 
