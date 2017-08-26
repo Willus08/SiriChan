@@ -106,7 +106,9 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="@color/colorPrimaryDark"
-        android:divider="@null"
-        android:entries="@array/menuList" />
+        android:divider="@color/colorDivider"
+        android:entries="@array/menuList"
+        android:dividerHeight="3dp"
+        />
 
 </android.support.v4.widget.DrawerLayout>

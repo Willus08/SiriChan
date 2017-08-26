@@ -264,6 +264,7 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
 
     }
 
+
     public void voiceCommand(View view) {
 
 
