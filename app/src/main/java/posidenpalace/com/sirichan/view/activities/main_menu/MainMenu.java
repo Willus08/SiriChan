@@ -339,6 +339,17 @@ public class MainMenu extends AppCompatActivity implements MainMenuContract.View
                         startActivity(intent);
                         Log.d(TAG, "onActivityResult: Content equal Search");
                     }
+                    if(theVoice.startsWith("chat room")|| theVoice.startsWith("chat")){
+                        Intent intent = new Intent(this, ChatRooms.class);
+                        if (theVoice.startsWith("chat room")){
+                            intent.putExtra("voice", theVoice.substring(10));
+                            startActivity(intent);
+                        }
+                        if (theVoice.startsWith("chat")){
+                            intent.putExtra("voice", theVoice.substring(5));
+                            startActivity(intent);
+                        }
+                    }
                 }
                 break;
         }
