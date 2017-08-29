@@ -10,7 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -95,22 +94,6 @@ public class ChatRooms extends AppCompatActivity {
             }
         });
 
-        String voice = getIntent().getStringExtra("voice");
-        Toast.makeText(ChatRooms.this, voice, Toast.LENGTH_SHORT).show();
-
-        if(voice != null&& listOfChatRooms.size()>0){
-            for (int j = 0; j < listOfChatRooms.size() ; j++) {
-                if (voice.startsWith(listOfChatRooms.get(j).toLowerCase())){
-                    Intent intent = new Intent(ChatRooms.this,FirebasePage.class);
-                    intent.putExtra("chatRoomName", listOfChatRooms.get(j));
-                    intent.putExtra("userName", userName);
-                    intent.putExtra("voice", voice.substring(listOfChatRooms.get(j).length()));
-                    startActivity(intent);
-                    Toast.makeText(ChatRooms.this, "Going to: " + listOfChatRooms.get(j), Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        }
     }
 
     public void createChat(View view) {

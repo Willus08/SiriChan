@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
@@ -32,7 +31,7 @@ public class FirebasePage extends AppCompatActivity {
     private EditText etMessage;
     private String chatRoomName;
     private String tempKey;
-    boolean firstRun = true;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +44,6 @@ public class FirebasePage extends AppCompatActivity {
         etMessage = (EditText) findViewById(R.id.etMessage);
 
         Log.d(TAG, "onCreate: create Chat");
-        if (firstRun){
-            String voice = getIntent().getStringExtra("voice");
-            Toast.makeText(this, voice, Toast.LENGTH_SHORT).show();
-            etMessage.setText(voice);
-            firstRun= false;
-        }
         firebaseAuth = FirebaseAuth.getInstance();
         userName = getIntent().getExtras().get("userName").toString();
         chatRoomName = getIntent().getExtras().get("chatRoomName").toString();
