@@ -2,9 +2,11 @@ package posidenpalace.com.sirichan.view.activities.chat;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
@@ -30,14 +32,25 @@ public class FirebasePage extends AppCompatActivity {
     private EditText etMessage;
     private String chatRoomName;
     private String tempKey;
+    boolean firstRun = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_firebase_page);
 
+
+
         tvMessages = (TextView) findViewById(R.id.tvMessages);
         etMessage = (EditText) findViewById(R.id.etMessage);
+
+        Log.d(TAG, "onCreate: create Chat");
+        if (firstRun){
+            String voice = getIntent().getStringExtra("voice");
+            Toast.makeText(this, voice, Toast.LENGTH_SHORT).show();
+            etMessage.setText(voice);
+            firstRun= false;
+        }
         firebaseAuth = FirebaseAuth.getInstance();
         userName = getIntent().getExtras().get("userName").toString();
         chatRoomName = getIntent().getExtras().get("chatRoomName").toString();
@@ -92,7 +105,6 @@ public class FirebasePage extends AppCompatActivity {
         map2.put("name", userName);
         map2.put("message", etMessage.getText().toString());
         messageRoot.updateChildren(map2);
-
         etMessage.setText("");
     }
 
