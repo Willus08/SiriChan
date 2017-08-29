@@ -25,7 +25,7 @@
             android:layout_width="60dp"
             android:layout_height="250dp"
             android:id="@+id/llWIweather12"
-            android:background="@drawable/weather_image_background"
+            android:background="@drawable/weather_background"
             android:orientation="vertical"
             android:gravity="center"
             android:layout_margin="10dp">
@@ -40,40 +40,40 @@
                 android:layout_width="40sp"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvWIweathertype12"
-                android:textColor="@color/colorPrimaryText"/>
+                android:textColor="@color/colorSecondaryText"/>
 
             <TextView
                 android:layout_width="40sp"
                 android:layout_height="wrap_content"
                 android:text="@string/weather_time"
                 android:gravity="center"
-                android:textColor="@color/colorPrimaryText"/>
+                android:textColor="@color/colorSecondaryText"/>
 
             <TextView
                 android:layout_width="40sp"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvWItime12"
-                android:textColor="@color/colorPrimaryText"/>
+                android:textColor="@color/colorSecondaryText"/>
 
             <TextView
                 android:layout_width="40sp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/weather_temp"
-                android:textColor="@color/colorPrimaryText"/>
+                android:textColor="@color/colorSecondaryText"/>
 
             <TextView
                 android:layout_width="40sp"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvWItemo12"
-                android:textColor="@color/colorPrimaryText"/>
+                android:textColor="@color/colorSecondaryText"/>
 
         </LinearLayout>
         <LinearLayout
             android:layout_width="60dp"
             android:layout_height="250dp"
             android:id="@+id/llWIweather3"
-            android:background="@drawable/weather_image_background"
+            android:background="@drawable/weather_background"
             android:orientation="vertical"
             android:gravity="center"
             android:layout_margin="10dp">
@@ -88,33 +88,33 @@
                 android:layout_width="40sp"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvWIweathertype3"
-                android:textColor="@color/colorPrimaryText"/>
+                android:textColor="@color/colorSecondaryText"/>
 
             <TextView
                 android:layout_width="40sp"
                 android:layout_height="wrap_content"
                 android:text="@string/weather_time"
                 android:gravity="center"
-                android:textColor="@color/colorPrimaryText"/>
+                android:textColor="@color/colorSecondaryText"/>
 
             <TextView
                 android:layout_width="40sp"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvWItime3"
-                android:textColor="@color/colorPrimaryText"/>
+                android:textColor="@color/colorSecondaryText"/>
 
             <TextView
                 android:layout_width="40sp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/weather_temp"
-                android:textColor="@color/colorPrimaryText"/>
+                android:textColor="@color/colorSecondaryText"/>
 
             <TextView
                 android:layout_width="40sp"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvWItemo3"
-                android:textColor="@color/colorPrimaryText"/>
+                android:textColor="@color/colorSecondaryText"/>
 
         </LinearLayout>
 
@@ -122,7 +122,7 @@
             android:layout_width="60dp"
             android:layout_height="250dp"
             android:id="@+id/llWIweather6"
-            android:background="@drawable/weather_image_background"
+            android:background="@drawable/weather_background"
             android:orientation="vertical"
             android:gravity="center"
             android:layout_margin="10dp">
@@ -137,33 +137,33 @@
                 android:layout_width="40sp"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvWIweathertype6"
-                android:textColor="@color/colorPrimaryText"/>
+                android:textColor="@color/colorSecondaryText"/>
 
             <TextView
                 android:layout_width="40sp"
                 android:layout_height="wrap_content"
                 android:text="@string/weather_time"
                 android:gravity="center"
-                android:textColor="@color/colorPrimaryText"/>
+                android:textColor="@color/colorSecondaryText"/>
 
             <TextView
                 android:layout_width="40sp"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvWItime6"
-                android:textColor="@color/colorPrimaryText"/>
+                android:textColor="@color/colorSecondaryText"/>
 
             <TextView
                 android:layout_width="40sp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/weather_temp"
-                android:textColor="@color/colorPrimaryText"/>
+                android:textColor="@color/colorSecondaryText"/>
 
             <TextView
                 android:layout_width="40sp"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvWItemo6"
-                android:textColor="@color/colorPrimaryText"/>
+                android:textColor="@color/colorSecondaryText"/>
 
         </LinearLayout>
 
@@ -171,7 +171,7 @@
             android:layout_width="60dp"
             android:layout_height="250dp"
             android:id="@+id/llWIweather9"
-            android:background="@drawable/weather_image_background"
+            android:background="@drawable/weather_background"
             android:orientation="vertical"
             android:gravity="center"
             android:layout_margin="10dp">
@@ -186,33 +186,33 @@
                 android:layout_width="40sp"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvWIweathertype9"
-                android:textColor="@color/colorPrimaryText"/>
+                android:textColor="@color/colorSecondaryText"/>
 
             <TextView
                 android:layout_width="40sp"
                 android:layout_height="wrap_content"
                 android:text="@string/weather_time"
                 android:gravity="center"
-                android:textColor="@color/colorPrimaryText"/>
+                android:textColor="@color/colorSecondaryText"/>
 
             <TextView
                 android:layout_width="40sp"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvWItime9"
-                android:textColor="@color/colorPrimaryText"/>
+                android:textColor="@color/colorSecondaryText"/>
 
             <TextView
                 android:layout_width="40sp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/weather_temp"
-                android:textColor="@color/colorPrimaryText"/>
+                android:textColor="@color/colorSecondaryText"/>
 
             <TextView
                 android:layout_width="40sp"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvWItemo9"
-                android:textColor="@color/colorPrimaryText"/>
+                android:textColor="@color/colorSecondaryText"/>
 
         </LinearLayout>
 
