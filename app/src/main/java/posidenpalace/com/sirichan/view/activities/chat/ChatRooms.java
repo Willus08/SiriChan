@@ -71,22 +71,6 @@ public class ChatRooms extends AppCompatActivity {
                     listOfChatRooms.clear();
                     listOfChatRooms.addAll(set);
                     arrayAdapter.notifyDataSetChanged();
-                    String voice = getIntent().getStringExtra("voice");
-                    Toast.makeText(ChatRooms.this, voice, Toast.LENGTH_SHORT).show();
-
-                    if(voice != null&& listOfChatRooms.size()>0){
-                        for (int j = 0; j < listOfChatRooms.size() ; j++) {
-                            if (voice.startsWith(listOfChatRooms.get(j).toLowerCase())){
-                                Intent intent = new Intent(ChatRooms.this,FirebasePage.class);
-                                intent.putExtra("chatRoomName", listOfChatRooms.get(j));
-                                intent.putExtra("userName", userName);
-                                intent.putExtra("voice", voice.substring(listOfChatRooms.get(j).length()));
-                                startActivity(intent);
-                                Toast.makeText(ChatRooms.this, "Going to: " + listOfChatRooms.get(j), Toast.LENGTH_SHORT).show();
-                            }
-
-                        }
-                    }
                 }
             }
 
@@ -110,6 +94,23 @@ public class ChatRooms extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        String voice = getIntent().getStringExtra("voice");
+        Toast.makeText(ChatRooms.this, voice, Toast.LENGTH_SHORT).show();
+
+        if(voice != null&& listOfChatRooms.size()>0){
+            for (int j = 0; j < listOfChatRooms.size() ; j++) {
+                if (voice.startsWith(listOfChatRooms.get(j).toLowerCase())){
+                    Intent intent = new Intent(ChatRooms.this,FirebasePage.class);
+                    intent.putExtra("chatRoomName", listOfChatRooms.get(j));
+                    intent.putExtra("userName", userName);
+                    intent.putExtra("voice", voice.substring(listOfChatRooms.get(j).length()));
+                    startActivity(intent);
+                    Toast.makeText(ChatRooms.this, "Going to: " + listOfChatRooms.get(j), Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        }
     }
 
     public void createChat(View view) {
