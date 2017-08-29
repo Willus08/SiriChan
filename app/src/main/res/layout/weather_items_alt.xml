@@ -6,13 +6,13 @@
     android:layout_margin="10dp">
 
     <TextView
+        android:id="@+id/tvWIDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_gravity="center"
-        android:id="@+id/tvWIDate"
+        android:gravity="center"
         android:text="Date: Test"
-        android:textSize="20sp"/>
+        android:textSize="20sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,6 +20,55 @@
         android:orientation="horizontal"
         android:gravity="center_horizontal">
 
+
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="250dp"
+            android:id="@+id/llWIweather12"
+            android:background="@drawable/weather_image_background"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/ivWIweatherImage12"
+                android:contentDescription="@string/weather_image_description"/>
+
+            <TextView
+                android:layout_width="40sp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvWIweathertype12"
+                android:textColor="@color/colorPrimaryText"/>
+
+            <TextView
+                android:layout_width="40sp"
+                android:layout_height="wrap_content"
+                android:text="@string/weather_time"
+                android:gravity="center"
+                android:textColor="@color/colorPrimaryText"/>
+
+            <TextView
+                android:layout_width="40sp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvWItime12"
+                android:textColor="@color/colorPrimaryText"/>
+
+            <TextView
+                android:layout_width="40sp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/weather_temp"
+                android:textColor="@color/colorPrimaryText"/>
+
+            <TextView
+                android:layout_width="40sp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvWItemo12"
+                android:textColor="@color/colorPrimaryText"/>
+
+        </LinearLayout>
         <LinearLayout
             android:layout_width="60dp"
             android:layout_height="250dp"
@@ -166,54 +215,7 @@
                 android:textColor="@color/colorPrimaryText"/>
 
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="60dp"
-            android:layout_height="250dp"
-            android:id="@+id/llWIweather12"
-            android:background="@drawable/weather_image_background"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_margin="10dp">
 
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:id="@+id/ivWIweatherImage12"
-                android:contentDescription="@string/weather_image_description"/>
-
-            <TextView
-                android:layout_width="40sp"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvWIweathertype12"
-                android:textColor="@color/colorPrimaryText"/>
-
-            <TextView
-                android:layout_width="40sp"
-                android:layout_height="wrap_content"
-                android:text="@string/weather_time"
-                android:gravity="center"
-                android:textColor="@color/colorPrimaryText"/>
-
-            <TextView
-                android:layout_width="40sp"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvWItime12"
-                android:textColor="@color/colorPrimaryText"/>
-
-            <TextView
-                android:layout_width="40sp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/weather_temp"
-                android:textColor="@color/colorPrimaryText"/>
-
-            <TextView
-                android:layout_width="40sp"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvWItemo12"
-                android:textColor="@color/colorPrimaryText"/>
-
-        </LinearLayout>
 
     </LinearLayout>
 
